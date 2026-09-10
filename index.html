@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macroeconomics Study Hub</title>
+<script>
+  window.MathJax = {
+    tex: { inlineMath: [['$','$'],['\\(','\\)']], displayMath: [['$$','$$'],['\\[','\\]']] },
+    svg: { fontCache: 'global' },
+    options: { skipHtmlTags: ['script','noscript','style','textarea','pre','code'] }
+  };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js" async></script>
+<style>
+  :root{
+    --bg:#f5f7f6; --surface:#ffffff; --surface-2:#eef3f1;
+    --ink:#132018; --ink-soft:#3a4a41; --muted:#6a7a71;
+    --line:#e0e9e4; --line-strong:#c7d6ce;
+    --brand:#0f766e; --brand-soft:#d8f0eb; --brand-ink:#0a5751;
+    --accent:#4338ca; --accent-soft:#e5e4fb; --accent-ink:#372fb0;
+    --warn:#b45309; --warn-soft:#fbe4cf;
+    --danger:#be123c; --danger-soft:#ffe0e8;
+    --gold:#946a00; --gold-soft:#f8eecb;
+    --radius:14px; --shadow:0 1px 2px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.06);
+    --maxw:1100px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0d1411; --surface:#152019; --surface-2:#1c2a22;
+      --ink:#eef5f0; --ink-soft:#c3d2ca; --muted:#8fa298;
+      --line:#243329; --line-strong:#35493c;
+      --brand:#4fd1c0; --brand-soft:#123029; --brand-ink:#a7ebe0;
+      --accent:#a5a0f5; --accent-soft:#20204a; --accent-ink:#c9c6ff;
+      --warn:#f0b968; --warn-soft:#33260f;
+      --danger:#ff90aa; --danger-soft:#37141f;
+      --gold:#e6c766; --gold-soft:#2e2713;
+      --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.62;-webkit-font-smoothing:antialiased}
+  a{color:var(--brand)}
+  h1,h2,h3,h4{line-height:1.25;color:var(--ink)}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  header.site{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--surface) 88%,transparent);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .head-inner{max-width:var(--maxw);margin:0 auto;padding:13px 20px;display:flex;flex-wrap:wrap;
+    align-items:center;gap:12px 22px;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .mark{width:40px;height:40px;border-radius:11px;background:linear-gradient(135deg,var(--brand),#2dd4bf);
+    display:grid;place-items:center;color:#04302b;font-weight:800;font-size:20px;box-shadow:var(--shadow)}
+  .brand h1{font-size:1.1rem;margin:0;letter-spacing:-.02em}
+  .brand p{margin:0;font-size:.75rem;color:var(--muted);font-weight:500}
+  .tabs{display:flex;gap:6px;background:var(--surface-2);padding:5px;border-radius:12px;border:1px solid var(--line)}
+  .tabs button{border:0;background:transparent;color:var(--ink-soft);font:inherit;font-weight:650;
+    padding:9px 15px;border-radius:9px;cursor:pointer;font-size:.88rem;transition:.15s;white-space:nowrap}
+  .tabs button:hover{color:var(--ink)}
+  .tabs button.active{background:var(--surface);color:var(--brand-ink);box-shadow:var(--shadow)}
+
+  .hero{padding:32px 0 8px}
+  .hero .eyebrow{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--brand-ink);background:var(--brand-soft);padding:5px 11px;border-radius:20px;margin-bottom:14px}
+  .hero h2{font-size:1.85rem;margin:.1em 0 .3em;letter-spacing:-.02em}
+  .hero p.lead{font-size:1.02rem;color:var(--ink-soft);max-width:74ch;margin:0}
+  .exam-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .fact{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:10px 15px;box-shadow:var(--shadow)}
+  .fact b{display:block;font-size:1.02rem;color:var(--brand-ink)}
+  .fact span{font-size:.77rem;color:var(--muted)}
+  .note-top{font-size:.82rem;color:var(--muted);margin:14px 0 0}
+
+  .subnav{position:sticky;top:68px;z-index:40;display:flex;gap:8px;flex-wrap:wrap;padding:12px 0;margin-top:14px;
+    background:linear-gradient(var(--bg),var(--bg) 70%,transparent)}
+  .subnav a{font-size:.82rem;font-weight:600;color:var(--ink-soft);text-decoration:none;
+    padding:7px 13px;border-radius:20px;border:1px solid var(--line);background:var(--surface);transition:.15s}
+  .subnav a:hover{border-color:var(--brand);color:var(--brand-ink)}
+
+  section.block{margin:30px 0 10px;scroll-margin-top:120px}
+  .sec-head{display:flex;align-items:center;gap:12px;margin:0 0 6px}
+  .sec-head .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-size:18px;flex:none}
+  .sec-head h3{margin:0;font-size:1.3rem;letter-spacing:-.01em}
+  .sec-sub{color:var(--muted);font-size:.9rem;margin:0 0 18px 46px}
+  .ico.teal{background:var(--brand-soft)}.ico.indigo{background:var(--accent-soft)}
+  .ico.gold{background:var(--gold-soft)}.ico.rose{background:var(--danger-soft)}.ico.amber{background:var(--warn-soft)}
+
+  .acc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow)}
+  .acc>summary{list-style:none;cursor:pointer;padding:16px 20px;display:flex;align-items:center;gap:12px;font-weight:670;font-size:1rem;user-select:none}
+  .acc>summary::-webkit-details-marker{display:none}
+  .acc>summary:hover{background:var(--surface-2)}
+  .acc>summary .chev{margin-left:auto;transition:transform .2s;color:var(--muted);flex:none}
+  .acc[open]>summary .chev{transform:rotate(90deg)}
+  .acc>summary .tag{font-size:.66rem;font-weight:700;padding:3px 8px;border-radius:6px;letter-spacing:.03em;text-transform:uppercase;white-space:nowrap}
+  .tag.wk{background:var(--brand-soft);color:var(--brand-ink)}
+  .tag.new{background:var(--accent-soft);color:var(--accent-ink)}
+  .acc .body{padding:4px 20px 20px;border-top:1px solid var(--line)}
+  .acc .body>*:first-child{margin-top:14px}
+
+  .intuition,.formal,.example,.trap,.callout,.tested{border-radius:11px;padding:13px 16px;margin:12px 0}
+  .intuition{background:var(--brand-soft);border:1px solid color-mix(in srgb,var(--brand) 28%,transparent)}
+  .formal{background:var(--surface-2);border:1px solid var(--line)}
+  .example{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 24%,transparent)}
+  .trap{background:var(--danger-soft);border:1px solid color-mix(in srgb,var(--danger) 26%,transparent)}
+  .callout{background:var(--gold-soft);border:1px solid color-mix(in srgb,var(--gold) 30%,transparent)}
+  .tested{background:var(--warn-soft);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent)}
+  .lbl{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:750;letter-spacing:.05em;text-transform:uppercase;margin-bottom:6px}
+  .intuition .lbl{color:var(--brand-ink)}.formal .lbl{color:var(--muted)}
+  .example .lbl{color:var(--accent-ink)}.trap .lbl{color:var(--danger)}.callout .lbl{color:var(--gold)}.tested .lbl{color:var(--warn)}
+  .intuition p,.formal p,.example p,.trap p,.callout p,.tested p{margin:.35em 0}
+  .step{margin:.4em 0 .4em 2px;padding-left:14px;border-left:2px solid var(--line-strong)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .pcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;box-shadow:var(--shadow);border-top:4px solid var(--line)}
+  .pcard.p-vhigh{border-top-color:var(--danger)}.pcard.p-high{border-top-color:var(--warn)}.pcard.p-med{border-top-color:var(--brand)}
+  .pcard h4{margin:0 0 4px;font-size:1rem}
+  .pcard .pr{font-size:.7rem;font-weight:750;letter-spacing:.05em;text-transform:uppercase}
+  .p-vhigh .pr{color:var(--danger)}.p-high .pr{color:var(--warn)}.p-med .pr{color:var(--brand-ink)}
+  .pcard p{margin:.5em 0 0;font-size:.88rem;color:var(--ink-soft)}
+  .pcard .seen{margin-top:9px;font-size:.75rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px}
+
+  /* MCQ */
+  .mcq{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
+  .mcq .q{padding:15px 18px 6px}
+  .mcq .q .meta{font-size:.71rem;font-weight:700;color:var(--brand-ink);text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+  .mcq ol.opts{margin:8px 0 4px;padding-left:0;list-style:none}
+  .mcq ol.opts li{padding:7px 12px;border:1px solid var(--line);border-radius:8px;margin:6px 0;font-size:.92rem;background:var(--surface-2)}
+  .mcq ol.opts li .k{font-weight:700;color:var(--muted);margin-right:8px}
+  .sol{border:0;margin:6px 18px 15px;border-radius:10px;background:var(--brand-soft);overflow:hidden}
+  .sol>summary{list-style:none;cursor:pointer;padding:10px 14px;font-weight:650;font-size:.86rem;color:var(--brand-ink);display:flex;align-items:center;gap:8px}
+  .sol>summary::-webkit-details-marker{display:none}
+  .sol>summary::before{content:"▸";transition:transform .2s}
+  .sol[open]>summary::before{transform:rotate(90deg)}
+  .sol .sbody{padding:2px 16px 15px;border-top:1px solid color-mix(in srgb,var(--brand) 22%,transparent);font-size:.92rem}
+  .sol .sbody>*:first-child{margin-top:11px}
+  .ans{font-weight:750;color:var(--brand-ink)}
+
+  /* numerical */
+  .prob{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:12px;box-shadow:var(--shadow);overflow:hidden}
+  .prob .q{padding:15px 18px 5px}
+  .prob .q .meta{font-size:.71rem;font-weight:700;color:var(--accent-ink);text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px}
+  .prob .sol{background:var(--surface-2)}
+  .prob .sol>summary{color:var(--accent-ink)}
+  .prob .sol .sbody{border-top-color:var(--line)}
+
+  /* likely vs unlikely table */
+  .lu{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.lu{grid-template-columns:1fr}}
+  .lu .col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px 16px 14px;box-shadow:var(--shadow)}
+  .lu .col h4{display:flex;align-items:center;gap:8px;font-size:1rem;margin:14px 0 6px}
+  .lu .col.yes{border-top:4px solid var(--brand)}
+  .lu .col.no{border-top:4px solid var(--muted)}
+  .lu ul{margin:0;padding-left:0;list-style:none}
+  .lu li{padding:8px 0;border-bottom:1px solid var(--line);font-size:.9rem;display:flex;gap:9px}
+  .lu li:last-child{border-bottom:0}
+  .lu li .b{flex:none;font-weight:800;margin-top:-1px}
+  .lu .yes li .b{color:var(--brand)}
+  .lu .no li .b{color:var(--danger)}
+  .lu li b{color:var(--ink)}
+
+  .cheat{columns:2;column-gap:16px}
+  @media(max-width:760px){.cheat{columns:1}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:0 0 16px;break-inside:avoid;box-shadow:var(--shadow)}
+  .card h4{margin:0 0 8px;font-size:.97rem;display:flex;align-items:center;gap:8px}
+  .card h4 .d{width:9px;height:9px;border-radius:50%;background:var(--brand)}
+  .card ul{margin:0;padding-left:2px;list-style:none}
+  .card li{padding:5px 0;border-bottom:1px solid var(--line);font-size:.89rem}
+  .card li:last-child{border-bottom:0}
+
+  .divider{height:1px;background:var(--line);margin:26px 0}
+  footer.site{border-top:1px solid var(--line);margin-top:40px;padding:26px 0;color:var(--muted);font-size:.82rem}
+  .pill{display:inline-block;font-size:.72rem;font-weight:600;background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:2px 8px;margin:2px 3px 2px 0;color:var(--ink-soft)}
+  .hub{display:none}.hub.active{display:block}
+  mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+  table.data{border-collapse:collapse;margin:10px 0;font-size:.9rem}
+  table.data th,table.data td{border:1px solid var(--line-strong);padding:5px 12px;text-align:center}
+  table.data th{background:var(--surface-2)}
+  @media(max-width:640px){.hero h2{font-size:1.5rem}.subnav{top:62px}.brand p{display:none}}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="head-inner">
+    <div class="brand">
+      <div class="mark">€</div>
+      <div>
+        <h1>Macroeconomics — Study Hub</h1>
+        <p>Mankiw · Theory explained · Exam-targeted MCQs &amp; numericals</p>
+      </div>
+    </div>
+    <div class="tabs" role="tablist">
+      <button id="tab-mid" class="active" onclick="showHub('mid')">📘 Midterm Hub</button>
+      <button id="tab-fin" onclick="showHub('fin')">📗 Final Exam Hub</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ================= MIDTERM ================= -->
+<div id="hub-mid" class="hub active">
+  <section class="hero">
+    <span class="eyebrow">Weeks 1–3 · National accounts · Classical models · Money</span>
+    <h2>Midterm Preparation</h2>
+    <p class="lead">The classical foundations: how we measure the economy (GDP, deflators, chain-weighting), how a closed and a small open economy reach equilibrium (the circular-flow / loanable-funds models), and how money, inflation and unemployment work. Understand the <em>logic</em> first, then drill the exact question types the midterm reuses every year.</p>
+    <div class="exam-facts">
+      <div class="fact"><b>1.5 hours</b><span>90 minutes</span></div>
+      <div class="fact"><b>30%</b><span>of course grade (if exam ≥ 5.0)</span></div>
+      <div class="fact"><b>6 parts</b><span>MCQ + numerical</span></div>
+      <div class="fact"><b>Guess correction</b><span>wrong answers cost points</span></div>
+    </div>
+    <p class="note-top"><b>Exam anatomy:</b> Part 1 = theory MCQs · Parts 2–3 = "shock analysis" fill-in (closed &amp; open economy) · Part 4 = circular-flow numerical · Part 5 = real/chain-weighted GDP · Part 6 = monetary system. Guess correction means <b>a blind guess has expected value ≤ 0 — only answer when you can eliminate options.</b></p>
+  </section>
+
+  <nav class="subnav">
+    <a href="#m-concepts">① Theory</a>
+    <a href="#m-highprob">② High-Probability</a>
+    <a href="#m-mcq">③ Theory MCQs</a>
+    <a href="#m-num">④ Numerical Practice</a>
+    <a href="#m-likely">⑤ Likely vs Unlikely</a>
+    <a href="#m-cheat">⑥ Formula Sheet</a>
+  </nav>
+
+  <!-- CONCEPTS -->
+  <section class="block" id="m-concepts">
+    <div class="sec-head"><div class="ico teal">🧠</div><h3>Step-by-Step Theory</h3></div>
+    <p class="sec-sub">Intuition → the formal model → how it's tested. Click any topic.</p>
+
+    <details class="acc"><summary><span class="tag wk">Wk 1</span> GDP &amp; the Three Approaches to Measuring Output <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>GDP is the market value of all <b>final</b> goods and services produced within a country in a period. The trick: one economy's output can be counted three ways that must all give the same number — because every euro of production becomes a euro of spending and a euro of someone's income.</p></div>
+        <div class="formal"><div class="lbl">📐 The three approaches</div>
+          <p><b>Production</b> = sum of value added (to avoid double-counting intermediate goods).</p>
+          <p><b>Expenditure:</b> $Y = C + I + G + NX$ (consumption + investment + government + net exports).</p>
+          <p><b>Income:</b> compensation of employees + operating surplus &amp; mixed income + (taxes − subsidies on production/imports).</p>
+          <p><b>Market vs factor prices:</b> GDP at factor prices = GDP at market prices − (taxes − subsidies). Capital income = operating surplus + <em>part</em> of mixed income (the rest is labour income).</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div><p>A table of the income-approach shares; you decide whether e.g. "capital income = 41.8% of GDP" is true (it isn't — mixed income is split between labour and capital). Also: inventory investment counts as investment $I$.</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 1</span> Nominal vs Real GDP · GDP Deflator vs CPI · Chain-Weighting <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>Nominal GDP mixes up "more stuff" with "higher prices." Real GDP strips out prices by valuing every year's quantities at one fixed set of (base-year) prices, so a change in real GDP is a genuine change in output.</p></div>
+        <div class="formal"><div class="lbl">📐 Formal</div>
+          <p><b>Real GDP</b> (base year $b$) $=\sum_i p_i^{\,b}\,q_i^{\,t}$.</p>
+          <p><b>GDP deflator</b> $=\dfrac{\text{nominal GDP}}{\text{real GDP}}\times100$. It covers everything in GDP.</p>
+          <p><b>CPI</b> tracks a fixed basket of <em>consumer</em> goods (includes imports, excludes non-consumer output) — so it is <b>not</b> the same as the deflator.</p>
+          <p><b>Chain-weighting</b> averages the growth rate computed with base year 1 and with base year 2 (geometric mean ≈ arithmetic mean of the two growth rates), removing the arbitrariness of which year is the base.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div><p><b>Every exam</b> has a numerical GDP question (Part 5): compute real GDP for each base year, both growth rates, then the chain-weighted growth rate and level. A theory MCQ often gives nominal &amp; real GDP and asks what you <em>can</em> vs <em>cannot</em> conclude about deflator vs CPI inflation.</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 2</span> Circular Flow — Closed Economy (Loanable Funds) <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>In the classical model, output $Y$ is fixed (full employment). The question is only how that output is <em>divided</em> between $C$, $I$, $G$. The market for loanable funds — where saving is the supply and investment the demand — sets the <b>real interest rate $r$</b> that makes $S=I$.</p></div>
+        <div class="formal"><div class="lbl">📐 Formal</div>
+          <p>Goods-market equilibrium $Y=C+I+G$ rearranges to $\underbrace{(Y-C-G)}_{\text{national saving }S}=I(r)$.</p>
+          <p>Saving splits into <b>private</b> $S^{pr}=Y-T-C$ and <b>public</b> $S^{pub}=T-G$. Investment falls with $r$: $I=\bar I - b\,r$.</p>
+          <p>The saving curve is <b>vertical</b> (saving doesn't depend on $r$ here); investment slopes down. Their crossing pins down $r$.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Shock analysis (Part 2):</b> a fiscal shock (e.g. tax cut, ↑$G$) creates excess demand for funds → the saving curve shifts → $r$ rises → investment is <b>crowded out</b>. You fill in each blank (which curve, which direction, final effect on $C,I,r,S$).</p>
+          <p><b>Numerical (Part 4):</b> plug numbers, solve for $S^{pr},S^{pub},S,I,r$.</p></div>
+        <div class="trap"><div class="lbl">⚠️ Trap</div><p>↑$G$ (or a tax cut) <b>always</b> raises $r$ and crowds out $I$ here — output $Y$ is fixed, so more $G$ must come out of $I$ (and $C$). Total saving $S=I$ is unchanged by a pure demand shift along a vertical saving curve only if saving itself didn't move; a tax cut lowers public saving, so $r$ rises and $I$ falls.</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 2</span> Circular Flow — Small Open Economy <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>A small open economy can borrow/lend at the <b>world real interest rate $r^\*$</b>, so $r$ is fixed from outside. Now saving and investment need not be equal domestically — the gap is <b>net capital outflow</b>, which must equal <b>net exports $NX$</b>. The <b>real exchange rate $\varepsilon$</b> adjusts to make $NX$ match.</p></div>
+        <div class="formal"><div class="lbl">📐 Formal</div>
+          <p>$r=r^\*$. Excess saving $S-I(r^\*)=NX(\varepsilon)$ = net capital outflow.</p>
+          <p>$NX=\overline{NX}-d\,\varepsilon$ (higher $\varepsilon$ = real appreciation = fewer exports). The excess-saving curve is vertical; the $NX$ curve slopes down in $\varepsilon$.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Shock analysis (Part 3)</b> and <b>numerical (Part 4)</b>: a shock (↑ autonomous $NX$, tax cut, ↑$G$) shifts excess saving or the $NX$ curve; you trace the effect on $\varepsilon$, $NX$, $C$, $I$, saving. Also a theory MCQ on U.S. net capital <em>inflow</em> since the 1980s and what happens if world confidence rises.</p></div>
+        <div class="callout"><div class="lbl">🔑 Sign map (open economy)</div><p>↑$G$ or tax cut → ↓ national saving → excess saving curve shifts left → $\varepsilon$ appreciates → $NX$ falls. $I$ is unchanged (because $r=r^\*$ fixed).</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 3</span> The Monetary System — Base, Multiplier, Money Supply <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>The central bank controls the <b>monetary base $B$</b> (cash + bank reserves). Banks then "multiply" it by lending: each deposit creates reserves and new lending. How big the multiplier is depends on how much the public holds as cash ($cr$) and how much banks keep as reserves ($rr$).</p></div>
+        <div class="formal"><div class="lbl">📐 Formal</div>
+          <p>$B=C+R$, &nbsp; $M=C+D$ (M1). Ratios: $cr=\dfrac{C}{D}$, $rr=\dfrac{R}{D}$.</p>
+          <p><b>Money multiplier</b> $m=\dfrac{cr+1}{cr+rr}$, and $M=m\cdot B$.</p>
+          <p>Since $rr\le1$, $m\ge1$. Lower $rr$ ⇒ higher $m$ ⇒ more money from the same base.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Numerical (Part 6):</b> given $C,R,D$, compute $B,M,cr,rr,m$; then a ratio changes and you find the new equilibrium $C,R,D,M$ (base held constant). <b>Theory MCQ:</b> if $B$ rises with $cr,rr$ constant, $m$ is unchanged but $C$ rises proportionally; if a bank moves cash between its vault and its reserve account, the <em>composition</em> of $B$ changes but its <em>size</em> doesn't.</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 3</span> Inflation, the Quantity Theory, Seigniorage &amp; Velocity <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>In the long run, prices are proportional to the money supply: print twice as much money and (with output and velocity fixed) prices roughly double. Inflation is "too much money chasing too few goods."</p></div>
+        <div class="formal"><div class="lbl">📐 Formal</div>
+          <p><b>Quantity equation:</b> $M\cdot V = P\cdot Y$. In growth rates: $\dfrac{\Delta M}{M}+\dfrac{\Delta V}{V}=\pi+\dfrac{\Delta Y}{Y}$.</p>
+          <p>With $V$ constant: $\;\pi=\dfrac{\Delta M}{M}-\dfrac{\Delta Y}{Y}$.</p>
+          <p><b>Money velocity</b> $V=\dfrac{PY}{M}$. <b>Seigniorage = the inflation tax</b> = real revenue from printing money; both equal each other and are <b>negative if the money supply shrinks</b>.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p>A computation MCQ combining the quantity theory with the exchange-rate relation (next card). A true/false on seigniorage/velocity (e.g. hyperinflation → very high velocity because nobody wants to hold cash; seigniorage can be negative).</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 3</span> Exchange Rates &amp; Inflation Differentials <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>If your country inflates faster than another, your currency tends to <em>depreciate</em> in nominal terms to keep real competitiveness (the real exchange rate) roughly on track.</p></div>
+        <div class="formal"><div class="lbl">📐 Formal (course convention)</div>
+          <p>For the appreciation of country A's currency vs B: $$\frac{\Delta e}{e}=\frac{\Delta \varepsilon}{\varepsilon}+\pi_B-\pi_A.$$
+          If the real exchange rate is constant ($\Delta\varepsilon/\varepsilon=0$): a higher home inflation $\pi_A$ means nominal <em>depreciation</em>.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Signature MCQ:</b> given nominal appreciation, foreign inflation and $\Delta\varepsilon/\varepsilon$, back out home inflation $\pi_A$; then use the quantity theory $\Delta M/M=\pi_A+\Delta Y/Y$ to find money-supply growth. (Worked in the MCQ section below.)</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 3</span> Unemployment — Definitions &amp; Efficiency Wages <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>Not everyone without a job is "unemployed" — you must be in the labour force (working or actively looking). Some unemployment is unavoidable: <b>frictional</b> (job search) + <b>structural</b> (wages stuck above market-clearing) = the <b>natural rate</b>.</p></div>
+        <div class="formal"><div class="lbl">📐 Key identities</div>
+          <p>$u=\dfrac{U}{L}$ (unemployment rate), $e=\dfrac{E}{POP}$ (employment rate), $p=\dfrac{L}{POP}$ (participation rate).</p>
+          <p>These combine to $\boxed{e=p\,(1-u)}$ — a favourite MCQ.</p>
+          <p><b>Efficiency-wage theory:</b> firms may pay <em>above</em> the market-clearing wage because higher pay raises productivity — creating structural unemployment.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div><p>MCQ on the $e=p(1-u)$ identity; true/false on "natural rate = frictional + structural" and the efficiency-wage logic.</p></div>
+      </div></details>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HIGH PROB -->
+  <section class="block" id="m-highprob">
+    <div class="sec-head"><div class="ico rose">🎯</div><h3>High-Probability Exam Topics</h3></div>
+    <p class="sec-sub">The midterm's part-structure is fixed, so these appear <b>essentially every year</b>. Master them in this order.</p>
+    <div class="grid">
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Real &amp; chain-weighted GDP (numerical)</h4><p>Real GDP for each base year, both growth rates, chain-weighted growth &amp; level. Pure formula work — free points.</p><div class="seen">Part 5, every year</div></div>
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Circular-flow shock analysis</h4><p>Fill-in-the-blank: trace a fiscal / net-export shock through the closed (Part 2) and open (Part 3) economy.</p><div class="seen">Parts 2 &amp; 3, every year</div></div>
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Circular-flow numerical (open economy)</h4><p>Solve for $S^{pr},S^{pub},S,I,r,NX,\varepsilon$; recompute after a tax/spending shock.</p><div class="seen">Part 4, every year</div></div>
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Monetary system (numerical)</h4><p>$B,M,cr,rr,m$, then the new equilibrium after a ratio change.</p><div class="seen">Part 6, every year</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>Deflator vs CPI reasoning</h4><p>Given nominal &amp; real GDP, what can you conclude about which inflation measure?</p><div class="seen">Part 1 MCQ, most years</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>Quantity theory + exchange rates</h4><p>Combine $\Delta M/M=\pi+\Delta Y/Y$ with the inflation-differential formula.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>Money multiplier logic</h4><p>What happens to $m$, $C$, $R$ when $B$ or a ratio changes.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>Unemployment identity $e=p(1-u)$</h4><p>Plus natural-rate composition and efficiency wages.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-med"><span class="pr">🔵 Likely</span><h4>Seigniorage / velocity true-false</h4><p>Both can be negative; hyperinflation ⇒ high velocity.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-med"><span class="pr">🔵 Likely</span><h4>Net capital inflow/outflow</h4><p>Open-economy interpretation of the U.S. since the 1980s.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-med"><span class="pr">🔵 Likely</span><h4>Income approach / GDP at factor prices</h4><p>Split of mixed income; market vs factor prices.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-med"><span class="pr">🔵 Likely</span><h4>Data-consistency with a model</h4><p>Do table data fit the closed / open circular-flow model?</p><div class="seen">Part 1 MCQ</div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- THEORY MCQ -->
+  <section class="block" id="m-mcq">
+    <div class="sec-head"><div class="ico amber">📝</div><h3>Pure-Theory MCQ Bank</h3></div>
+    <p class="sec-sub"><b>Original</b> questions modeled on the midterm's Part-1 style (guess-corrected true/false &amp; concept MCQs). Decide your answer, then reveal the reasoning. <em>Remember: with guess correction, skip rather than blind-guess.</em></p>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 1 · Deflator vs CPI</div>
+      <p>An economy's <b>nominal</b> GDP rises from 200 to 204 while its <b>real</b> GDP rises from 200 to 210 over the same year. Which is correct?</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> Inflation according to the GDP deflator was positive.</li>
+        <li><span class="k">b.</span> Inflation according to the GDP deflator was negative.</li>
+        <li><span class="k">c.</span> Inflation according to the CPI was negative.</li>
+        <li><span class="k">d.</span> Nothing can be said about any price index.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> The deflator $=$ nominal/real. Nominal grew $+2\%$ while real grew $+5\%$, so nominal/real <em>fell</em> → deflator inflation is negative. The table says nothing about the CPI (different basket), so (c) is unsupported and (d) is wrong because we <em>can</em> speak about the deflator.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 2 · Quantity theory + exchange rates</div>
+      <p>Country A's currency <b>appreciates 6%</b> nominally against B. The real exchange rate is unchanged. Inflation in B is 5%. The quantity theory holds in A and real GDP in A grows 2%. What is the growth rate of A's nominal money supply?</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> 0%</li><li><span class="k">b.</span> 1%</li><li><span class="k">c.</span> 2%</li><li><span class="k">d.</span> 3%</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b (1%).</span></p>
+        <p class="step">Exchange-rate relation: $\frac{\Delta e}{e}=\frac{\Delta\varepsilon}{\varepsilon}+\pi_B-\pi_A \Rightarrow 6\%=0\%+5\%-\pi_A \Rightarrow \pi_A=-1\%$.</p>
+        <p class="step">Quantity theory: $\frac{\Delta M}{M}=\pi_A+\frac{\Delta Y}{Y}=-1\%+2\%=1\%$.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 3 · Money multiplier</div>
+      <p>A monetary system is in equilibrium. The central bank <b>doubles the monetary base</b>, while the currency–deposit ratio and reserve–deposit ratio stay constant. In the new equilibrium:</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> The money multiplier doubles and currency in circulation doubles.</li>
+        <li><span class="k">b.</span> The money multiplier is unchanged; currency in circulation doubles.</li>
+        <li><span class="k">c.</span> The money multiplier doubles; currency in circulation is unchanged.</li>
+        <li><span class="k">d.</span> Nothing changes.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> $m=\frac{cr+1}{cr+rr}$ depends only on the ratios, so it is unchanged. With $cr,rr$ fixed, $C$, $R$ and $D$ all scale up with $B$ — so currency in circulation doubles, and so does $M=mB$.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 4 · Unemployment identity</div>
+      <p>With $u$ = unemployment rate, $p$ = participation rate, $e$ = employment rate (employed ÷ working-age population), which identity holds?</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> $u=p\,(1-e)$</li><li><span class="k">b.</span> $e=p\,(1-u)$</li><li><span class="k">c.</span> $p=u+e$</li><li><span class="k">d.</span> None.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> $e=\frac{E}{POP}=\frac{L}{POP}\cdot\frac{E}{L}=p\cdot\frac{L-U}{L}=p\,(1-u)$.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 5 · Seigniorage &amp; velocity (true/false)</div>
+      <p>I. Seigniorage and the inflation tax can both be negative. &nbsp; II. In a hyperinflation, money velocity is usually very high.</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> I true, II true</li><li><span class="k">b.</span> I true, II false</li><li><span class="k">c.</span> I false, II true</li><li><span class="k">d.</span> I false, II false</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: a.</span> Seigniorage = the inflation tax; both are negative if the money supply <em>shrinks</em>. In hyperinflation people dump cash fast, so $V=PY/M$ is very high.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 6 · Closed economy — fiscal shock (true/false)</div>
+      <p>In the circular-flow model for a <b>closed</b> economy: I. An increase in government purchases raises the real interest rate. &nbsp; II. It raises private investment.</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> I true, II true</li><li><span class="k">b.</span> I true, II false</li><li><span class="k">c.</span> I false, II true</li><li><span class="k">d.</span> I false, II false</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> ↑$G$ lowers public saving → the (vertical) saving curve shifts left → $r$ rises → investment is <b>crowded out</b> (falls). So I is true, II is false.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 7 · Open economy — net capital flows</div>
+      <p>The U.S. has run <b>net capital inflow</b> (negative net capital outflow) since the 1980s. If business confidence in the <em>rest of the world</em> rises, then according to the open-economy circular-flow model, U.S. net capital inflow will most likely:</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> increase</li><li><span class="k">b.</span> decrease</li><li><span class="k">c.</span> stay exactly constant</li><li><span class="k">d.</span> become net outflow with certainty</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> Higher world confidence pushes the world interest rate $r^\*$ up, so U.S. investment falls → U.S. excess saving rises → net capital <em>inflow</em> shrinks.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 8 · GDP at factor prices</div>
+      <p>Income-approach shares of GDP at market prices: taxes less subsidies on production/imports 9%; compensation of employees 52%; operating surplus &amp; mixed income 39%. Is "GDP at factor prices = 91% of GDP at market prices" true?</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> True</li><li><span class="k">b.</span> False — it is 39%</li><li><span class="k">c.</span> False — it is 52%</li><li><span class="k">d.</span> Cannot be determined</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: a (True).</span> Factor prices = market prices − (taxes − subsidies) = 100% − 9% = 91% = compensation (52%) + operating surplus &amp; mixed income (39%). Note capital income alone is <em>less</em> than 39% because part of mixed income is labour income.</p></div></details>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NUMERICAL -->
+  <section class="block" id="m-num">
+    <div class="sec-head"><div class="ico indigo">🧮</div><h3>Numerical Practice (worked)</h3></div>
+    <p class="sec-sub"><b>Original</b> problems with the exact structure of Parts 4–6. Try first, then open the full step-by-step solution.</p>
+
+    <div class="prob"><div class="q"><div class="meta">Problem N1 · Circular flow, small open economy (Part 4 style)</div>
+      <p>$Y=600,\;G=80,\;T=80,\;r^\*=6$, with $C=100+\tfrac12(Y-T)$, $I=150-10r$, $NX=200-10\varepsilon$. Find $S^{pr},S^{pub},S,I,r,NX,\varepsilon$. Then a tax cut $\Delta T=-20$ (so $T=60$): recompute all.</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>Fixed:</b> $r=r^\*=6$, so $I=150-10(6)=60$.</p>
+        <p class="step">$C=100+\tfrac12(600-80)=100+260=360$. Private saving $S^{pr}=Y-T-C=600-80-360=160$.</p>
+        <p class="step">Public saving $S^{pub}=T-G=80-80=0$. Total $S=S^{pr}+S^{pub}=160$.</p>
+        <p class="step">$NX=S-I=160-60=100$. From $NX=200-10\varepsilon=100 \Rightarrow \varepsilon=10$.</p>
+        <p class="step"><b>After $\Delta T=-20$ ($T=60$):</b> $C=100+\tfrac12(600-60)=100+270=370$. $S^{pr}=600-60-370=170$.</p>
+        <p class="step">$S^{pub}=60-80=-20$. $S=170-20=150$. $I=60$ (unchanged, $r=r^\*$). $NX=150-60=90 \Rightarrow \varepsilon=11$.</p>
+        <p><span class="ans">Answers:</span> before — $S^{pr}=160,\ S^{pub}=0,\ S=160,\ I=60,\ r=6,\ NX=100,\ \varepsilon=10$; after — $S^{pr}=170,\ S^{pub}=-20,\ S=150,\ I=60,\ r=6,\ NX=90,\ \varepsilon=11$. The tax cut appreciates the currency and shrinks net exports.</p></div></details>
+    </div>
+
+    <div class="prob"><div class="q"><div class="meta">Problem N2 · Real &amp; chain-weighted GDP (Part 5 style)</div>
+      <p>Two goods.</p>
+      <table class="data"><tr><th></th><th>Year 1</th><th>Year 2</th></tr>
+      <tr><td>Quantity good 1</td><td>4</td><td>6</td></tr>
+      <tr><td>Quantity good 2</td><td>10</td><td>8</td></tr>
+      <tr><td>Price good 1</td><td>3</td><td>6</td></tr>
+      <tr><td>Price good 2</td><td>6</td><td>3</td></tr></table>
+      <p>Find real GDP each year with base 1 and base 2, the two growth rates, and the chain-weighted growth &amp; level (base year 1 level).</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>Base year 1</b> (prices 3, 6): $Y_1^{1}=4(3)+10(6)=72$. &nbsp; $Y_2^{1}=6(3)+8(6)=66$. &nbsp; $g^{1}=\frac{66-72}{72}=-8.33\%$.</p>
+        <p class="step"><b>Base year 2</b> (prices 6, 3): $Y_1^{2}=4(6)+10(3)=54$. &nbsp; $Y_2^{2}=6(6)+8(3)=60$. &nbsp; $g^{2}=\frac{60-54}{54}=+11.11\%$.</p>
+        <p class="step"><b>Chain-weighted growth</b> = average of the two growth rates $\approx\tfrac12(-8.33\%+11.11\%)=+1.39\%$.</p>
+        <p class="step"><b>Chain level, base year 1:</b> $Y_1^{ch,1}=Y_1^{1}=72$; $Y_2^{ch,1}=72\times(1+0.0139)=73.0$.</p>
+        <p><span class="ans">Answers:</span> $Y_1^1=72,\ Y_2^1=66,\ g^1=-8.3\%$; $Y_1^2=54,\ Y_2^2=60,\ g^2=+11.1\%$; $g^{ch}\approx+1.4\%$, $Y_2^{ch,1}\approx73$.</p>
+        <p class="step"><b>Why chain-weighting matters:</b> the base-year choice flips the sign of measured growth (−8% vs +11%) because relative prices changed a lot; chaining splits the difference.</p></div></details>
+    </div>
+
+    <div class="prob"><div class="q"><div class="meta">Problem N3 · Monetary system (Part 6 style)</div>
+      <p>Equilibrium in period $t$: $C_t=300,\ R_t=150,\ D_t=600$. Find $B_t,M_t,cr_t,rr_t,m_t$. Then the reserve–deposit ratio falls to $rr=1/6$ (base and $cr$ unchanged). Find the new $m,C,R,D,M$.</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>Period $t$:</b> $B_t=C+R=300+150=450$. &nbsp; $M_t=C+D=300+600=900$.</p>
+        <p class="step">$cr_t=C/D=300/600=1/2$. &nbsp; $rr_t=R/D=150/600=1/4$. &nbsp; $m_t=\frac{cr+1}{cr+rr}=\frac{1.5}{0.75}=2$. (Check: $M=mB=2\times450=900$ ✓)</p>
+        <p class="step"><b>New equilibrium</b> ($rr=1/6$, $cr=1/2$, $B=450$ fixed): $m=\frac{0.5+1}{0.5+1/6}=\frac{1.5}{0.6667}=2.25$.</p>
+        <p class="step">$M=mB=2.25\times450=1012.5$. Solve $C+D=1012.5$ and $C=cr\,D=0.5D$: $1.5D=1012.5\Rightarrow D=675$, $C=337.5$, $R=rr\,D=\tfrac16(675)=112.5$. (Check $B=C+R=337.5+112.5=450$ ✓)</p>
+        <p><span class="ans">Answers:</span> $B_t=450,\ M_t=900,\ cr=1/2,\ rr=1/4,\ m_t=2$; new $m=2.25,\ C=337.5,\ R=112.5,\ D=675,\ M=1012.5$. Lower reserves ⇒ bigger multiplier ⇒ more money.</p></div></details>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LIKELY vs UNLIKELY -->
+  <section class="block" id="m-likely">
+    <div class="sec-head"><div class="ico gold">⚖️</div><h3>Likely vs Unlikely — Where to Spend Your Time</h3></div>
+    <p class="sec-sub">Based on the recurring midterm structure and the Course Manual's explicit reading list &amp; <em>exclusions</em>. Focus left; don't over-invest right.</p>
+    <div class="lu">
+      <div class="col yes"><h4>✅ Almost certainly on the midterm</h4><ul>
+        <li><span class="b">→</span><span><b>Real / chain-weighted GDP</b> numerical (Part 5).</span></li>
+        <li><span class="b">→</span><span><b>Circular-flow shock analysis</b>, closed &amp; open (Parts 2–3).</span></li>
+        <li><span class="b">→</span><span><b>Open-economy circular-flow numerical</b> with a tax/spending shock (Part 4).</span></li>
+        <li><span class="b">→</span><span><b>Monetary system numerical</b> — base, multiplier, new equilibrium (Part 6).</span></li>
+        <li><span class="b">→</span><span><b>Deflator vs CPI</b> reasoning; <b>quantity theory + exchange rates</b>; <b>$e=p(1-u)$</b>; <b>money-multiplier logic</b> (Part 1).</span></li>
+        <li><span class="b">→</span><span><b>Seigniorage/velocity</b>, <b>efficiency wages</b>, <b>net capital flows</b>, <b>income approach</b> true/false.</span></li>
+      </ul></div>
+      <div class="col no"><h4>🚫 Not midterm material (don't study for it)</h4><ul>
+        <li><span class="b">✕</span><span><b>Everything from Weeks 4–6</b> — Keynesian Cross, IS-LM, Mundell-Fleming, AD-AS, Phillips curve. <em>(That's the final, not the midterm.)</em></span></li>
+        <li><span class="b">✕</span><span><b>The Solow growth model</b> — <em>not part of this course at all.</em> A common trap for students who studied other macro courses.</span></li>
+        <li><span class="b">✕</span><span><b>Mankiw case studies</b> excluded in the manual (PCE deflator; "Other Measures of Income"; seasonal adjustment; the establishment survey).</span></li>
+        <li><span class="b">✕</span><span><b>Purchasing Power Parity</b> as a special case &amp; the Ch. 7 appendix (excluded in Week 2 reading).</span></li>
+        <li><span class="b">✕</span><span><b>Bank capital, leverage &amp; capital requirements</b>; the 2023 bank failures; §20.3 (excluded from Ch. 20).</span></li>
+        <li><span class="b">✕</span><span><b>Historical details</b> &amp; the §1.1 case study; Ch. 6 §6.4 &amp; its case studies (Zimbabwe, Free Silver, etc.).</span></li>
+      </ul></div>
+    </div>
+    <div class="callout" style="margin-top:16px"><div class="lbl">📌 Golden rule from the Course Manual</div><p>"Only material covered in the lectures/tutorials or on Canvas is required." Textbook theory, tables or case studies <em>not</em> covered are <b>out</b>; material covered in lectures but not in Mankiw is <b>in</b>. When in doubt, follow the slides — and remember guess correction: a blind MCQ guess has expected value ≤ 0.</p></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CHEAT -->
+  <section class="block" id="m-cheat">
+    <div class="sec-head"><div class="ico teal">📌</div><h3>"Must-Remember" Formula Sheet</h3></div>
+    <p class="sec-sub">Everything you need for the midterm on one screen.</p>
+    <div class="cheat">
+      <div class="card"><h4><span class="d"></span>National accounts</h4><ul>
+        <li>$Y=C+I+G+NX$ (expenditure)</li>
+        <li>Deflator $=\dfrac{\text{nominal GDP}}{\text{real GDP}}\times100$</li>
+        <li>Real GDP $=\sum p^{\text{base}}_i q^t_i$</li>
+        <li>Factor prices = market prices − (taxes − subsidies)</li>
+        <li>growth $=\dfrac{x_{t+1}-x_t}{x_t}$; chain $g\approx\tfrac12(g^1+g^2)$</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Closed economy</h4><ul>
+        <li>$S=Y-C-G=I(r)$</li>
+        <li>$S^{pr}=Y-T-C$; $S^{pub}=T-G$</li>
+        <li>$I=\bar I-b\,r$ (down-sloping)</li>
+        <li>↑$G$ or tax cut ⇒ ↑$r$, ↓$I$ (crowding out)</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Small open economy</h4><ul>
+        <li>$r=r^\*$ (world rate, fixed)</li>
+        <li>$S-I=NX=$ net capital outflow</li>
+        <li>$NX=\overline{NX}-d\,\varepsilon$; ↑$\varepsilon$ = real appreciation</li>
+        <li>↓ saving ⇒ $\varepsilon$ appreciates, $NX$ falls, $I$ unchanged</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Monetary system</h4><ul>
+        <li>$B=C+R$; $M=C+D$ (M1)</li>
+        <li>$cr=C/D$; $rr=R/D$</li>
+        <li>$m=\dfrac{cr+1}{cr+rr}$; $M=m\,B$</li>
+        <li>↓$rr$ ⇒ ↑$m$ ⇒ ↑$M$</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Inflation &amp; money</h4><ul>
+        <li>$MV=PY$ (quantity equation)</li>
+        <li>$\pi=\dfrac{\Delta M}{M}-\dfrac{\Delta Y}{Y}$ (V const)</li>
+        <li>$V=PY/M$</li>
+        <li>Seigniorage $=$ inflation tax (can be $<0$)</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Exchange rates</h4><ul>
+        <li>$\dfrac{\Delta e}{e}=\dfrac{\Delta\varepsilon}{\varepsilon}+\pi_B-\pi_A$</li>
+        <li>Higher home inflation ⇒ nominal depreciation</li>
+        <li>$\varepsilon=\dfrac{P\,e}{P^\*}$ (real exchange rate)</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Unemployment</h4><ul>
+        <li>$u=U/L$, $e=E/POP$, $p=L/POP$</li>
+        <li>$e=p(1-u)$</li>
+        <li>natural = frictional + structural</li>
+        <li>efficiency wage &gt; market-clearing ⇒ structural unemployment</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Exam tactics</h4><ul>
+        <li>Guess correction: skip if you can't eliminate ≥1 option</li>
+        <li>Numerical parts: <b>no</b> derivation needed — just the number</li>
+        <li>Always start from goods-market equilibrium</li>
+        <li>Non-graphing calculator only</li>
+      </ul></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= FINAL ================= -->
+<div id="hub-fin" class="hub">
+  <section class="hero">
+    <span class="eyebrow">Comprehensive · All 6 weeks · Business-cycle theory</span>
+    <h2>Final Exam Preparation</h2>
+    <p class="lead">The final is <b>cumulative</b>: everything from the midterm returns, plus the whole short-run business-cycle toolkit — the Keynesian Cross, the IS-LM model, the Mundell-Fleming model (open economy, floating vs fixed exchange rates), and the AD-AS model with the Phillips curve and the Lucas critique.</p>
+    <div class="exam-facts">
+      <div class="fact"><b>2 hours</b><span>120 minutes</span></div>
+      <div class="fact"><b>70%</b><span>of course grade</span></div>
+      <div class="fact"><b>≥ 5.5</b><span>needed to pass (overall)</span></div>
+      <div class="fact"><b>6 parts</b><span>MCQ + numerical</span></div>
+    </div>
+    <p class="note-top"><b>Exam anatomy:</b> Part 1 = 12 theory MCQs across <em>all</em> topics · Part 2 = IS-LM shock analysis · Part 3 = Mundell-Fleming shock analysis · Part 4 = Mundell-Fleming numerical (floating vs fixed) · Part 5 = real/chain-weighted GDP (same as midterm) · Part 6 = Keynesian-Cross multiplier numerical. <b>The midterm material is fully fair game</b> — revisit the Midterm Hub too.</p>
+  </section>
+
+  <nav class="subnav">
+    <a href="#f-concepts">① New Theory</a>
+    <a href="#f-highprob">② High-Probability</a>
+    <a href="#f-mcq">③ Theory MCQs</a>
+    <a href="#f-num">④ Numerical Practice</a>
+    <a href="#f-likely">⑤ Likely vs Unlikely</a>
+    <a href="#f-cheat">⑥ Formula Sheet</a>
+  </nav>
+
+  <!-- CONCEPTS -->
+  <section class="block" id="f-concepts">
+    <div class="sec-head"><div class="ico teal">🧠</div><h3>Step-by-Step Theory (Business Cycles)</h3></div>
+    <p class="sec-sub">The post-midterm models. For national accounts / classical / money, revisit the Midterm Hub.</p>
+
+    <details class="acc"><summary><span class="tag new">Wk 4</span> The Keynesian Cross &amp; the Multiplier <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>In the short run, <b>output is demand-determined</b>: firms produce whatever is bought. Planned expenditure $PE=C+I+G(+NX)$ depends on income $Y$; equilibrium is where $Y=PE$ (the 45° line). Because extra income is re-spent, an initial demand injection <b>multiplies</b> into a larger output change.</p></div>
+        <div class="formal"><div class="lbl">📐 Formal</div>
+          <p>Closed: $Y=\bar C+c(Y-T)+\bar I-bi+\bar G$. Solve: the <b>government-purchases multiplier</b> is $\dfrac{1}{1-c}$.</p>
+          <p>With proportional taxes $T=\bar T+tY$ and income-sensitive imports $NX=\overline{NX}-zY-de$, the multiplier becomes $$\mu=\frac{1}{1-c(1-t)+z}.$$</p>
+          <p>Saving result: since $S=Y-C-G$ and with $T,G$ fixed, $\Delta S=(1-c)\Delta Y-\Delta\bar C$.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Numerical (Part 6):</b> derive the multiplier $\mu$ as a formula, compute equilibrium $Y$, and find the $\Delta G$ needed for a target $\Delta Y$. <b>Theory MCQ:</b> the $\Delta S=(1-c)\Delta Y-\Delta\bar C$ relation after an autonomous-consumption shock.</p></div>
+        <div class="callout"><div class="lbl">🔑 Multiplier menu</div><p>Closed, lump-sum taxes: $\frac{1}{1-c}$. Tax multiplier: $\frac{-c}{1-c}$. With proportional taxes &amp; imports: $\frac{1}{1-c(1-t)+z}$ (smaller — leakages dampen it).</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag new">Wk 4</span> The Liquidity-Preference Model (Money Market) <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>The interest rate is the "price" of holding money. People want more money when income is high (more transactions) and less when the interest rate is high (bonds pay more). The central bank fixes the real money supply; the interest rate moves to clear the market.</p></div>
+        <div class="formal"><div class="lbl">📐 Formal</div>
+          <p>Real money demand $(M/P)^d=\bar L+k\,Y-m\,i$; supply $(M/P)^s=\bar M/P$. Equilibrium sets $i$.</p>
+          <p>↑$Y$ ⇒ money demand shifts right ⇒ $i$ rises. ↑$M$ ⇒ $i$ falls. This is the engine behind the <b>LM curve</b>.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div><p>Embedded in the IS-LM shock analysis (Part 2): "the agents try to {buy/sell} bonds, so the interest rate {rises/falls} until the money market clears."</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag new">Wk 5</span> The IS-LM Model <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>Two markets, one diagram in $(Y,i)$. The <b>IS curve</b> = all $(Y,i)$ where the <em>goods</em> market clears (down-sloping: higher $i$ → less investment → less output). The <b>LM curve</b> = all $(Y,i)$ where the <em>money</em> market clears (up-sloping: higher $Y$ → more money demand → higher $i$). Their intersection is the short-run equilibrium.</p></div>
+        <div class="formal"><div class="lbl">📐 What shifts what</div>
+          <p><b>IS shifters</b> (demand): ↑$G$, tax cut, ↑ autonomous $C$/$I$ → IS <b>right</b>. A fall in autonomous demand → IS left.</p>
+          <p><b>LM shifters</b> (money): ↑$M$ or ↓$P$ → real money supply up → LM <b>right</b> (lower $i$).</p>
+          <p>A change in $P$ moves along/derives the <b>AD curve</b>: lower $P$ → LM right → higher $Y$ ⇒ AD slopes down.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Shock analysis (Part 2):</b> trace a shock (e.g. a fall in $P$) — first the impact on $i$ (LM shift), then investment, the goods-market disequilibrium, the bond-buying/selling that restores the money market, and the final effects on $Y,C,I,i$, the real money supply.</p></div>
+        <div class="trap"><div class="lbl">⚠️ Trap</div><p>Distinguish a <b>shift of</b> a curve (an exogenous shock) from a <b>movement along</b> it (an endogenous response). The fill-in list literally offers "of" vs "along."</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag new">Wk 5</span> The Mundell-Fleming Model (Open Economy) <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>IS-LM for a <b>small open economy with perfect capital mobility</b>: the domestic interest rate is pinned to the world rate ($r=r^\*$). Because any interest gap triggers instant capital flows, the <b>exchange rate</b> does the adjusting. The diagram is drawn in $(Y,e)$ with $IS^\*$ and $LM^\*$.</p></div>
+        <div class="formal"><div class="lbl">📐 The decisive question: which exchange-rate regime?</div>
+          <p><b>Floating rates:</b> monetary policy is <b>powerful</b> (↑$M$ → depreciation → ↑$NX$ → ↑$Y$); fiscal policy is <b>powerless for $Y$</b> (↑$G$ → appreciation → $NX$ falls one-for-one, crowding out via exchange rate).</p>
+          <p><b>Fixed rates:</b> the reverse — <b>fiscal policy is powerful</b>; monetary policy is <b>powerless</b> (the central bank must adjust $M$ to defend the peg, so it can't independently move $M$).</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Shock analysis (Part 3):</b> trace a shock (e.g. ↓ autonomous $NX$) under floating rates. <b>Numerical (Part 4):</b> compute $Y,e$; apply a shock (e.g. $\Delta \bar I$) under <em>floating</em> (find new $Y,e$) and then under <em>fixed</em> rates (find new $Y$ and the $M$ the central bank must set). This regime contrast is the single most important exam idea in the open-economy section.</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag new">Wk 6</span> AD-AS, the Phillips Curve &amp; the Lucas Critique <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>The <b>AD curve</b> (from IS-LM) slopes down in $(Y,P)$. <b>Short-run AS</b> is up-sloping (sticky prices/wages); <b>long-run AS</b> is vertical at potential output. Shocks move the economy in the short run, but it returns to potential in the long run. The <b>Phillips curve</b> is the same story in inflation–unemployment space: $\pi=\pi^e-\beta(u-u^n)+\text{supply shock}$.</p></div>
+        <div class="formal"><div class="lbl">📐 Formal &amp; key results</div>
+          <p><b>Demand shock:</b> short run — output <em>and</em> prices move together; long run — only prices move, output returns to potential.</p>
+          <p><b>Supply shock</b> (e.g. oil): output and prices move in <em>opposite</em> directions (stagflation).</p>
+          <p><b>Expectations:</b> with <b>adaptive</b> expectations, even anticipated demand shocks have short-run real effects; with <b>rational</b> expectations, a <em>fully anticipated</em> demand shock has <em>no</em> short-run real effect (prices jump immediately). In the <b>long run</b>, an <em>unanticipated</em> demand shock has the same (price-only) effect under either expectation scheme.</p>
+          <p><b>Lucas critique:</b> policy rules change how people form expectations, so historical relationships (like a fixed Phillips curve) break down when policy changes — you can't exploit them mechanically.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div>
+          <p><b>Theory MCQs:</b> IS/AD shifting together in a recession; rational vs adaptive expectations for anticipated vs unanticipated shocks (short vs long run); the liquidity trap; Japan's Lost Decade (deflation, near-zero rates — <em>not</em> high inflation).</p></div>
+      </div></details>
+
+    <details class="acc"><summary><span class="tag new">Wk 6</span> Liquidity Trap, Japan &amp; the Great Recession <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>When the nominal interest rate hits ~zero, the central bank <b>can't cut it further</b> — conventional monetary policy loses traction (a <b>liquidity trap</b>). Japan's 1990s "Lost Decade" and the 2008–09 Great Recession are the case studies.</p></div>
+        <div class="formal"><div class="lbl">📐 Facts to keep straight</div>
+          <p>Japan's Lost Decade = <b>deflation</b> and a <b>very low</b> nominal interest rate (with a liquidity trap) — <em>not</em> high inflation/high rates.</p>
+          <p>In a liquidity trap, fiscal policy (or unconventional monetary policy) becomes relatively more important.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div><p>True/false MCQs that flip a fact (e.g. "Japan systematically raised money supply causing high inflation" — false).</p></div>
+      </div></details>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HIGH PROB -->
+  <section class="block" id="f-highprob">
+    <div class="sec-head"><div class="ico rose">🎯</div><h3>High-Probability Exam Topics</h3></div>
+    <p class="sec-sub">Fixed part-structure ⇒ these are near-certain. The midterm's numerical types (GDP) also reappear.</p>
+    <div class="grid">
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Mundell-Fleming numerical: floating vs fixed</h4><p>Compute $Y,e$; apply a shock under floating then fixed rates; find the $M$ needed to hold the peg.</p><div class="seen">Part 4, every year</div></div>
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Keynesian-Cross multiplier (numerical)</h4><p>Derive $\mu$, compute $Y$, find $\Delta G$ for a target $\Delta Y$. Open economy with proportional taxes/imports.</p><div class="seen">Part 6, every year</div></div>
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>IS-LM shock analysis (fill-in)</h4><p>Trace a shock step-by-step: curve shifts, bond buying/selling, final effects.</p><div class="seen">Part 2, every year</div></div>
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Mundell-Fleming shock analysis (fill-in)</h4><p>$IS^\*$/$LM^\*$, capital in/outflow, exchange-rate adjustment.</p><div class="seen">Part 3, every year</div></div>
+      <div class="pcard p-vhigh"><span class="pr">🔴 Guaranteed</span><h4>Real / chain-weighted GDP (numerical)</h4><p>Identical to the midterm — reliable points.</p><div class="seen">Part 5, every year</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>Rational vs adaptive expectations</h4><p>Anticipated vs unanticipated demand shock, short vs long run.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>IS-LM ↔ AD-AS linkage</h4><p>A recession: IS shifts left ⇒ AD shifts left.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>Mundell-Fleming comparative statics</h4><p>Slope of $IS^\*$ vs the MPC; effect of ↑$r^\*$.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-high"><span class="pr">🟠 Very likely</span><h4>Keynesian-Cross saving relation</h4><p>$\Delta S=(1-c)\Delta Y-\Delta\bar C$ after an autonomous shock.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-med"><span class="pr">🔵 Likely</span><h4>Liquidity trap / Japan's Lost Decade</h4><p>Deflation, near-zero rates, trap logic.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-med"><span class="pr">🔵 Likely</span><h4>All midterm MCQ topics</h4><p>Deflator, money multiplier, quantity theory, unemployment — still examinable.</p><div class="seen">Part 1 MCQ</div></div>
+      <div class="pcard p-med"><span class="pr">🔵 Likely</span><h4>Supply vs demand shock (AD-AS)</h4><p>Stagflation vs co-movement of $Y$ and $P$.</p><div class="seen">Part 1 MCQ</div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- THEORY MCQ -->
+  <section class="block" id="f-mcq">
+    <div class="sec-head"><div class="ico amber">📝</div><h3>Pure-Theory MCQ Bank</h3></div>
+    <p class="sec-sub"><b>Original</b> business-cycle MCQs in the exam's Part-1 style. (For money/GDP/classical MCQs, use the Midterm Hub bank — all still examinable.)</p>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 1 · IS-LM ↔ AD-AS</div>
+      <p>Autonomous investment and consumption both fall, pushing the economy into recession with higher unemployment. In the IS-LM and AD-AS models, this is best described as:</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> Both the IS and the AD curve shift left.</li>
+        <li><span class="k">b.</span> IS shifts left; the economy moves <em>along</em> the AD curve.</li>
+        <li><span class="k">c.</span> AD shifts left; the economy moves <em>along</em> the IS curve.</li>
+        <li><span class="k">d.</span> Neither curve shifts.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: a.</span> A fall in autonomous demand shifts IS left. Since AD is the set of $(Y,P)$ where goods <em>and</em> money markets clear, lower autonomous demand shifts AD left too. Both curves shift.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 2 · Mundell-Fleming comparative statics (true/false)</div>
+      <p>I. If the foreign real interest rate rises, the domestic real interest rate rises and the $IS^\*$ curve shifts left. &nbsp; II. The larger the marginal propensity to consume, the <em>steeper</em> the $IS^\*$ curve.</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> I true, II true</li><li><span class="k">b.</span> I true, II false</li><li><span class="k">c.</span> I false, II true</li><li><span class="k">d.</span> I false, II false</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> I: with perfect mobility $r=r^\*$, so ↑$r^\*$ ⇒ ↑ domestic $r$ ⇒ less investment ⇒ $IS^\*$ shifts left. True. II: a larger MPC means a larger multiplier, so $Y$ must move <em>more</em> as $e$ changes to keep goods-market equilibrium — the $IS^\*$ curve is <b>flatter</b>, not steeper. False.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 3 · Exchange-rate regime &amp; policy</div>
+      <p>A small open economy with <b>perfect capital mobility</b> and <b>floating</b> exchange rates raises government purchases $G$. In the Mundell-Fleming model, the effect on equilibrium output $Y$ is:</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> $Y$ rises strongly (fiscal policy is powerful).</li>
+        <li><span class="k">b.</span> $Y$ is essentially unchanged (appreciation crowds out net exports).</li>
+        <li><span class="k">c.</span> $Y$ falls.</li>
+        <li><span class="k">d.</span> $Y$ rises only if the central bank also raises $M$.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> Under floating rates, ↑$G$ tends to raise $i$, drawing in capital and <b>appreciating</b> the currency until net exports fall by exactly the fiscal injection — so $Y$ is unchanged. Fiscal policy is powerless for output under floating rates; monetary policy is the powerful lever there.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 4 · Rational vs adaptive expectations (true/false)</div>
+      <p>Base your answer on the AD-AS model. I. In the <b>long run</b>, the effect on output and the price level of an <em>unanticipated</em> demand shock is the same under rational and adaptive expectations. &nbsp; II. In the <b>short run</b>, the effect of an <em>anticipated</em> demand shock is the same under rational and adaptive expectations.</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> I true, II true</li><li><span class="k">b.</span> I true, II false</li><li><span class="k">c.</span> I false, II true</li><li><span class="k">d.</span> I false, II false</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> I: in the long run output returns to potential and only $P$ adjusts — same under both. True. II: in the short run an <em>anticipated</em> shock has <b>no</b> real effect under rational expectations (prices jump immediately) but <b>does</b> have a real effect under adaptive expectations — so they differ. II is false.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 5 · Liquidity trap / Japan (true/false)</div>
+      <p>I. During its 1990s Lost Decade, Japan's central bank raised the money supply, causing high inflation and high nominal interest rates. &nbsp; II. In a liquidity trap, the nominal interest rate is so low the central bank can't cut it further to stimulate the economy.</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> I true, II true</li><li><span class="k">b.</span> I true, II false</li><li><span class="k">c.</span> I false, II true</li><li><span class="k">d.</span> I false, II false</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: c.</span> I is false: Japan had <em>deflation</em> and very low nominal rates (a liquidity trap), not high inflation. II is the correct definition of a liquidity trap.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 6 · Keynesian-Cross saving relation</div>
+      <p>In the closed Keynesian Cross, autonomous consumption changes by $\Delta\bar C$ (with $G,T$ fixed) and the economy reaches a new equilibrium with output change $\Delta Y$. The change in total saving $\Delta S$ equals:</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> $-\Delta\bar C$</li>
+        <li><span class="k">b.</span> $(1-c)\,\Delta Y-\Delta\bar C$</li>
+        <li><span class="k">c.</span> $c\,\Delta Y-\Delta\bar C$</li>
+        <li><span class="k">d.</span> None of the above.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: b.</span> $S=Y-C-G=Y-\bar C-c(Y-T)-G$. With $\Delta T=\Delta G=0$: $\Delta S=\Delta Y-\Delta\bar C-c\,\Delta Y=(1-c)\Delta Y-\Delta\bar C$.</p></div></details>
+    </div>
+
+    <div class="mcq"><div class="q"><div class="meta">MCQ 7 · Supply vs demand shock (AD-AS)</div>
+      <p>A sharp rise in world oil prices hits the economy. In the short-run AD-AS model, the most likely outcome is:</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> Output and the price level both rise.</li>
+        <li><span class="k">b.</span> Output and the price level both fall.</li>
+        <li><span class="k">c.</span> Output falls while the price level rises (stagflation).</li>
+        <li><span class="k">d.</span> Output rises while the price level falls.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: c.</span> An adverse <b>supply</b> shock shifts short-run AS left/up: output and prices move in <em>opposite</em> directions — falling output with rising prices = stagflation. (Contrast: a demand shock moves $Y$ and $P$ the <em>same</em> way.)</p></div></details>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- NUMERICAL -->
+  <section class="block" id="f-num">
+    <div class="sec-head"><div class="ico indigo">🧮</div><h3>Numerical Practice (worked)</h3></div>
+    <p class="sec-sub"><b>Original</b> problems mirroring Parts 4 &amp; 6. (For the Part-5 GDP problem, see the Midterm Hub — it's identical.)</p>
+
+    <div class="prob"><div class="q"><div class="meta">Problem F1 · Mundell-Fleming: floating vs fixed (Part 4 style)</div>
+      <p>$G=60,\;T=60,\;M=200,\;P=1,\;P^\*=1,\;r^\*=i^\*=5$, with $C=20+\tfrac12(Y-T)$, $I=90-4r$, $NX=50-10\varepsilon$ (and $\varepsilon=Pe/P^\*=e$), $(M/P)^d=30+\tfrac12 Y-10i$. &nbsp;(a) Find $Y$ and $e$. &nbsp;(b) Autonomous investment falls by $\Delta\bar I=-8$; find the new $Y,e$ under <b>floating</b> rates. &nbsp;(c) Under <b>fixed</b> rates (hold $e$ at the part-(a) value): find the new $Y$ and the $M$ the central bank must set.</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>Money market fixes $Y$ (LM* is vertical):</b> $r=i=r^\*=5$. Set $(M/P)^s=(M/P)^d$: $200=30+\tfrac12 Y-10(5)=\ -20+\tfrac12 Y \Rightarrow \tfrac12 Y=220 \Rightarrow Y=440.$</p>
+        <p class="step"><b>(a)</b> Goods market at $r=5$: $C=20+\tfrac12(440-60)=20+190=210$; $I=90-4(5)=70$. $Y=C+I+G+NX \Rightarrow 440=210+70+60+NX \Rightarrow NX=100$. From $NX=50-10e$: $100=50-10e\Rightarrow e=-5$. (Negative simply reflects the chosen units/parameters; keep going — the method is what's graded.) So $Y=440,\ e=-5$.</p>
+        <p class="step"><b>(b) Floating, $\Delta\bar I=-8$:</b> $Y$ is still set by the money market ⇒ $Y=440$ (unchanged — under floating rates a demand shock is absorbed by the exchange rate). New $I=82-4(5)=62$; need $NX=440-210-62-60=108$ ⇒ $108=50-10e\Rightarrow e=-5.8$. So $Y=440,\ e=-5.8$ (currency depreciates to offset weaker investment).</p>
+        <p class="step"><b>(c) Fixed, hold $e=-5$:</b> then $NX=50-10(-5)=100$ (unchanged). Goods market: $Y=C+I+G+NX$ with $C=20+\tfrac12(Y-60)$, $I=82-4(5)=62$: $Y=20+\tfrac12(Y-60)+62+60+100 \Rightarrow Y=\tfrac12 Y+212 \Rightarrow \tfrac12 Y=212 \Rightarrow Y=424.$ To hold $e$, the central bank sets $M$ so the money market clears at this $Y$: $M=30+\tfrac12(424)-10(5)=30+212-50=192.$</p>
+        <p><span class="ans">Answers:</span> (a) $Y=440,\ e=-5$; (b) floating: $Y=440,\ e=-5.8$; (c) fixed: $Y=424,\ M=192$.</p>
+        <p class="step"><b>Takeaway:</b> under <b>floating</b> rates the shock hits $e$, not $Y$; under <b>fixed</b> rates it hits $Y$, and the central bank must shrink $M$ to defend the peg — the core Mundell-Fleming regime contrast.</p></div></details>
+    </div>
+
+    <div class="prob"><div class="q"><div class="meta">Problem F2 · Keynesian-Cross multiplier, open economy (Part 6 style)</div>
+      <p>$Y=C+I+G+NX$ with $C=\bar C+c(Y-T)$, $T=\bar T+tY$, $NX=\overline{NX}-zY-de$, $I=\bar I-bi$ ($i,e$ exogenous). &nbsp;(a) Derive the government-purchases multiplier $\mu$. &nbsp;(b) With $\bar C=80,\ c=0.8,\ \bar I=200,\ bi=40,\ \overline{NX}=120,\ z=0.1,\ de=20,\ G=300,\ \bar T=0,\ t=0.25$: compute $Y$. &nbsp;(c) Find $\Delta G$ needed to raise $Y$ by $\Delta Y=50$.</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>(a)</b> Substitute: $Y=\bar C+c(Y-\bar T-tY)+\bar I-bi+G+\overline{NX}-zY-de$. Collect $Y$: $Y[\,1-c(1-t)+z\,]=\text{(autonomous terms)}$. So $$\mu=\frac{\partial Y}{\partial G}=\frac{1}{1-c(1-t)+z}.$$</p>
+        <p class="step"><b>(b)</b> Denominator $=1-0.8(1-0.25)+0.1=1-0.6+0.1=0.5$, so $\mu=2$. Autonomous total $=\bar C+\bar I-bi+G+\overline{NX}-de=80+200-40+300+120-20=640$. $Y=\mu\times(\text{autonomous})=2\times640=1280.$ (Also solve directly: $Y=640+0.8(Y-0.25Y)-0.1Y=640+0.6Y-0.1Y=640+0.5Y\Rightarrow0.5Y=640\Rightarrow Y=1280$.)</p>
+        <p class="step"><b>(c)</b> $\Delta Y=\mu\,\Delta G \Rightarrow 50=2\,\Delta G \Rightarrow \Delta G=25.$</p>
+        <p><span class="ans">Answers:</span> $\mu=\dfrac{1}{1-c(1-t)+z}=2$, $Y=1280$, $\Delta G=25$.</p>
+        <p class="step"><b>Note:</b> proportional taxes ($t$) and income-sensitive imports ($z$) both <em>shrink</em> the multiplier — extra income leaks to the tax office and to foreign producers.</p></div></details>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- LIKELY vs UNLIKELY -->
+  <section class="block" id="f-likely">
+    <div class="sec-head"><div class="ico gold">⚖️</div><h3>Likely vs Unlikely — Where to Spend Your Time</h3></div>
+    <p class="sec-sub">From the recurring final structure and the Course Manual's explicit exclusions.</p>
+    <div class="lu">
+      <div class="col yes"><h4>✅ Almost certainly on the final</h4><ul>
+        <li><span class="b">→</span><span><b>Mundell-Fleming numerical</b>: floating vs fixed rates (Part 4).</span></li>
+        <li><span class="b">→</span><span><b>Keynesian-Cross multiplier</b> derivation + $Y$ + $\Delta G$ (Part 6).</span></li>
+        <li><span class="b">→</span><span><b>IS-LM &amp; Mundell-Fleming shock analysis</b> fill-in (Parts 2–3).</span></li>
+        <li><span class="b">→</span><span><b>Real / chain-weighted GDP</b> numerical (Part 5).</span></li>
+        <li><span class="b">→</span><span><b>Rational vs adaptive expectations</b>; <b>supply vs demand shocks</b>; <b>liquidity trap / Japan</b> (Part 1).</span></li>
+        <li><span class="b">→</span><span><b>All midterm MCQ topics</b> — deflator, money multiplier, quantity theory, unemployment — remain examinable.</span></li>
+      </ul></div>
+      <div class="col no"><h4>🚫 Not exam material (don't study for it)</h4><ul>
+        <li><span class="b">✕</span><span><b>The Solow growth model / long-run growth accounting</b> — <em>not in this course.</em></span></li>
+        <li><span class="b">✕</span><span><b>The sticky-price model</b> &amp; the <b>imperfect-information model</b> of AS (excluded from Ch. 16 §16.1).</span></li>
+        <li><span class="b">✕</span><span><b>Disinflation &amp; the sacrifice ratio</b>, <b>anchored expectations</b>, <b>hysteresis / natural-rate challenge</b> (excluded from §16.2).</span></li>
+        <li><span class="b">✕</span><span><b>"IS-LM in the short run and long run"</b> &amp; §14.3 (excluded from Ch. 14).</span></li>
+        <li><span class="b">✕</span><span><b>Ch. 15 case studies</b> (except the Euro fixed-rate case study, which <em>is</em> included).</span></li>
+        <li><span class="b">✕</span><span><b>Bank capital / leverage / capital requirements</b>, the 2023 bank failures, §20.3 (from the money weeks).</span></li>
+      </ul></div>
+    </div>
+    <div class="callout" style="margin-top:16px"><div class="lbl">📌 Two rules that win points</div><p><b>1.</b> For any open-economy shock, first ask <em>"floating or fixed?"</em> — it flips which policy works. <b>2.</b> Follow the slides, not the whole textbook: only lecture/tutorial/Canvas material is examinable. And with guess correction, leave an MCQ blank rather than guessing blindly.</p></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CHEAT -->
+  <section class="block" id="f-cheat">
+    <div class="sec-head"><div class="ico teal">📌</div><h3>"Must-Remember" Master Formula Sheet</h3></div>
+    <p class="sec-sub">Business-cycle half. (Money / GDP / classical formulas are in the Midterm Hub sheet — also examinable.)</p>
+    <div class="cheat">
+      <div class="card"><h4><span class="d"></span>Keynesian Cross</h4><ul>
+        <li>Equilibrium: $Y=PE=C+I+G(+NX)$</li>
+        <li>Closed multiplier: $\dfrac{1}{1-c}$; tax mult. $\dfrac{-c}{1-c}$</li>
+        <li>Open + prop. taxes: $\mu=\dfrac{1}{1-c(1-t)+z}$</li>
+        <li>$\Delta S=(1-c)\Delta Y-\Delta\bar C$</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Money market (LM)</h4><ul>
+        <li>$(M/P)^d=\bar L+kY-mi$</li>
+        <li>↑$Y$ ⇒ ↑$i$; ↑$M$ or ↓$P$ ⇒ ↓$i$</li>
+        <li>LM slopes up in $(Y,i)$</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>IS-LM</h4><ul>
+        <li>IS (goods): down-sloping; LM (money): up-sloping</li>
+        <li>IS right: ↑$G$, tax cut, ↑ auto. $C/I$</li>
+        <li>LM right: ↑$M$, ↓$P$</li>
+        <li>Lower $P$ → LM right → ↑$Y$ ⇒ AD slopes down</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Mundell-Fleming</h4><ul>
+        <li>$r=r^\*$; diagram in $(Y,e)$, $IS^\*$/$LM^\*$</li>
+        <li><b>Floating:</b> monetary strong, fiscal weak (for $Y$)</li>
+        <li><b>Fixed:</b> fiscal strong, monetary weak</li>
+        <li>Fixed peg ⇒ CB adjusts $M$ to hold $e$</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>AD-AS &amp; Phillips</h4><ul>
+        <li>AD down; SRAS up; LRAS vertical (potential)</li>
+        <li>$\pi=\pi^e-\beta(u-u^n)+$ supply shock</li>
+        <li>Demand shock: $Y,P$ move together (SR); only $P$ (LR)</li>
+        <li>Supply shock: $Y,P$ opposite (stagflation)</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Expectations &amp; Lucas</h4><ul>
+        <li>Adaptive: even anticipated shocks have SR real effects</li>
+        <li>Rational: anticipated demand shock ⇒ no SR real effect</li>
+        <li>LR: unanticipated shock — same under both</li>
+        <li>Lucas critique: policy changes shift expectations ⇒ old relations break</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Crises</h4><ul>
+        <li>Liquidity trap: $i\approx0$, CB can't cut further</li>
+        <li>Japan Lost Decade: deflation + very low rates</li>
+        <li>In a trap, fiscal policy matters more</li>
+      </ul></div>
+      <div class="card"><h4><span class="d"></span>Exam tactics</h4><ul>
+        <li>Open-economy shock → ask "floating or fixed?" first</li>
+        <li>Numerical parts: give the number only</li>
+        <li>Guess correction: skip if you can't eliminate an option</li>
+        <li>Midterm material is still on the final</li>
+      </ul></div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p><b>Macroeconomics Study Hub</b> — built from the UvA <em>Macroeconomics for Quantitative Economics</em> course materials (Course Manual, lecture slides, homework, and past midterms &amp; finals 2017–2025), following Mankiw's <em>Macroeconomics</em>.</p>
+    <p>All MCQs and numerical problems here are <b>original practice</b> written to match the exam's structure and difficulty — the real past-exam questions are copyright © Koen Vermeylen and are not reproduced. Study flow: read the theory → attempt a question → reveal the reasoning → drill the formula sheet. "Likely vs unlikely" reflects the recurring exam structure and the Manual's stated exclusions; always confirm against your official Canvas materials.</p>
+    <p style="margin-top:10px">
+      <span class="pill">Midterm = Weeks 1–3</span>
+      <span class="pill">Final = all 6 weeks</span>
+      <span class="pill">Theory + MCQs + numericals</span>
+      <span class="pill">MathJax</span>
+      <span class="pill">Guess-correction aware</span>
+    </p>
+  </div>
+</footer>
+
+<script>
+  function showHub(which){
+    document.getElementById('hub-mid').classList.toggle('active', which==='mid');
+    document.getElementById('hub-fin').classList.toggle('active', which==='fin');
+    document.getElementById('tab-mid').classList.toggle('active', which==='mid');
+    document.getElementById('tab-fin').classList.toggle('active', which==='fin');
+    window.scrollTo({top:0,behavior:'smooth'});
+    try{ localStorage.setItem('macro-hub', which);}catch(e){}
+  }
+  try{ if(localStorage.getItem('macro-hub')==='fin') showHub('fin'); }catch(e){}
+  document.querySelectorAll('.subnav a').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var el=document.querySelector(this.getAttribute('href'));
+      if(el){ e.preventDefault(); window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-110,behavior:'smooth'}); }
+    });
+  });
+</script>
+</body>
+</html>
