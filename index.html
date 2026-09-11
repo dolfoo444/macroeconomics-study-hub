@@ -177,6 +177,42 @@
   table.data th,table.data td{border:1px solid var(--line-strong);padding:5px 12px;text-align:center}
   table.data th{background:var(--surface-2)}
   @media(max-width:640px){.hero h2{font-size:1.5rem}.subnav{top:62px}.brand p{display:none}}
+
+  /* glossary */
+  .gloss-group{margin:22px 0 6px;font-size:.78rem;font-weight:750;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-ink)}
+  .gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+  .gterm{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  .gterm h4{margin:0;font-size:1rem;color:var(--brand-ink);display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .gterm h4 .sym{font-weight:600;color:var(--muted);font-size:.82rem}
+  .gterm p{margin:.5em 0 0;font-size:.9rem;color:var(--ink-soft)}
+  .gterm .eg{margin-top:9px;font-size:.86rem;background:var(--accent-soft);border-radius:8px;padding:8px 11px;color:var(--ink-soft)}
+  .gterm .eg b{color:var(--accent-ink)}
+
+  /* shock walkthrough */
+  .shock{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .shock>summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px;font-weight:680;font-size:1rem;user-select:none}
+  .shock>summary::-webkit-details-marker{display:none}
+  .shock>summary:hover{background:var(--surface-2)}
+  .shock>summary .chev{margin-left:auto;color:var(--muted);transition:transform .2s;flex:none}
+  .shock[open]>summary .chev{transform:rotate(90deg)}
+  .shock>summary .badge{font-size:.64rem;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;flex:none}
+  .badge.fiscal{background:var(--danger-soft);color:var(--danger)}
+  .badge.money{background:var(--accent-soft);color:var(--accent-ink)}
+  .badge.external{background:var(--gold-soft);color:var(--gold)}
+  .badge.price{background:var(--brand-soft);color:var(--brand-ink)}
+  .shock .sbody{padding:2px 18px 20px;border-top:1px solid var(--line)}
+  .shk-eg{background:var(--brand-soft);border-radius:10px;padding:11px 14px;margin:14px 0;font-size:.9rem;border:1px solid color-mix(in srgb,var(--brand) 22%,transparent)}
+  .shk-eg .lbl{color:var(--brand-ink)}
+  .chain{counter-reset:step;margin:16px 0 6px;padding:0;list-style:none}
+  .chain li{position:relative;padding:2px 0 14px 42px;font-size:.92rem;border-left:2px solid var(--line-strong);margin-left:14px}
+  .chain li:last-child{border-left-color:transparent;padding-bottom:2px}
+  .chain li::before{counter-increment:step;content:counter(step);position:absolute;left:-15px;top:-2px;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#04302b;font-weight:800;font-size:.85rem;display:grid;place-items:center}
+  .chain li b{color:var(--ink)}
+  .result{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:14px 0 4px}
+  .result .r{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:7px 11px;font-size:.85rem;display:flex;justify-content:space-between;gap:8px;align-items:center}
+  .result .r .v{font-weight:800;font-size:1rem}
+  .up{color:var(--brand-ink)}.down{color:var(--danger)}.flat{color:var(--muted)}
+  .maprow{font-size:.84rem;color:var(--muted);margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
 </style>
 </head>
 <body>
@@ -216,11 +252,13 @@
 
   <nav class="subnav">
     <a href="#m-concepts">① Theory</a>
-    <a href="#m-highprob">② High-Probability</a>
-    <a href="#m-mcq">③ Theory MCQs</a>
-    <a href="#m-num">④ Numerical Practice</a>
-    <a href="#m-likely">⑤ Likely vs Unlikely</a>
-    <a href="#m-cheat">⑥ Formula Sheet</a>
+    <a href="#m-terms">② Key Terms</a>
+    <a href="#m-shocks">③ Shocks Explained</a>
+    <a href="#m-highprob">④ High-Probability</a>
+    <a href="#m-mcq">⑤ Theory MCQs</a>
+    <a href="#m-num">⑥ Numerical</a>
+    <a href="#m-likely">⑦ Likely vs Unlikely</a>
+    <a href="#m-cheat">⑧ Formula Sheet</a>
   </nav>
 
   <!-- CONCEPTS -->
@@ -322,6 +360,175 @@
           <p>These combine to $\boxed{e=p\,(1-u)}$ — a favourite MCQ.</p>
           <p><b>Efficiency-wage theory:</b> firms may pay <em>above</em> the market-clearing wage because higher pay raises productivity — creating structural unemployment.</p></div>
         <div class="tested"><div class="lbl">🎯 How it's tested</div><p>MCQ on the $e=p(1-u)$ identity; true/false on "natural rate = frictional + structural" and the efficiency-wage logic.</p></div>
+      </div></details>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- KEY TERMS -->
+  <section class="block" id="m-terms">
+    <div class="sec-head"><div class="ico indigo">📖</div><h3>Key Terms — Deep Dive</h3></div>
+    <p class="sec-sub">Every term you need, explained in plain English with its symbol and a concrete example. If a term ever feels fuzzy on the exam, this is your anchor.</p>
+
+    <div class="gloss-group">Measuring the economy</div>
+    <div class="gloss">
+      <div class="gterm"><h4>Gross Domestic Product <span class="sym">GDP, $Y$</span></h4>
+        <p>The total market value of all <b>final</b> goods and services produced <em>inside</em> a country in a period. "Final" matters: we count the bread, not separately the flour that went into it — otherwise we'd double-count. Equivalently, GDP = sum of everyone's <b>value added</b>.</p>
+        <div class="eg"><b>Example:</b> a baker buys €1 of flour and sells €3 of bread. GDP records the €2 of value the baker <em>added</em>, plus the €1 the miller added earlier — €3 total, not €4.</div></div>
+      <div class="gterm"><h4>Nominal vs Real GDP <span class="sym">P·Y vs Y</span></h4>
+        <p><b>Nominal</b> GDP values output at <em>this year's</em> prices, so it rises if either quantities or prices rise. <b>Real</b> GDP values every year's quantities at one fixed set of <em>base-year</em> prices, so it only moves when actual output moves.</p>
+        <div class="eg"><b>Example:</b> if the economy makes the same goods but all prices double, nominal GDP doubles while real GDP is unchanged — nothing more was actually produced.</div></div>
+      <div class="gterm"><h4>GDP deflator <span class="sym">nominal ÷ real ×100</span></h4>
+        <p>A price index covering <em>everything</em> in GDP. It's simply the ratio that's "left over" once you strip real from nominal output. Its inflation rate = growth of nominal minus growth of real GDP.</p>
+        <div class="eg"><b>Example:</b> nominal GDP grows 2%, real grows 5% → the deflator <em>fell</em> ~3%, so deflator inflation was negative that year.</div></div>
+      <div class="gterm"><h4>Consumer Price Index <span class="sym">CPI</span></h4>
+        <p>The price of a <b>fixed basket of consumer goods</b>. Unlike the deflator it includes imported consumer goods but excludes non-consumer output (machines, exports). So the CPI and the deflator can move differently — and a GDP table tells you nothing about the CPI.</p>
+        <div class="eg"><b>Example:</b> a spike in the price of imported oil pushes the CPI up more than the deflator, since imports aren't in domestic GDP.</div></div>
+      <div class="gterm"><h4>Chain-weighting <span class="sym">$g^{ch}$</span></h4>
+        <p>A way to measure real growth that doesn't depend on which year you pick as the base. You compute growth using base-year-1 prices and base-year-2 prices, then average the two (a geometric mean, approximated by the arithmetic mean).</p>
+        <div class="eg"><b>Example:</b> base year 1 says −8%, base year 2 says +11%; chain-weighted growth ≈ ½(−8%+11%) = +1.4%.</div></div>
+      <div class="gterm"><h4>Market vs factor prices <span class="sym"></span></h4>
+        <p>GDP at <b>market prices</b> includes taxes minus subsidies on production/imports; GDP at <b>factor prices</b> strips them out to show what actually goes to the factors of production. Factor prices = market prices − (taxes − subsidies) = labour income + capital income.</p>
+        <div class="eg"><b>Example:</b> if taxes-less-subsidies are 8% of GDP, then GDP at factor prices is 92% of GDP at market prices.</div></div>
+    </div>
+
+    <div class="gloss-group">Saving, interest &amp; the open economy</div>
+    <div class="gloss">
+      <div class="gterm"><h4>Real interest rate <span class="sym">$r$</span></h4>
+        <p>The interest rate corrected for inflation — the true reward for saving / cost of borrowing. In the classical model it's set in the market for loanable funds. (Nominal rate $i$ = real rate $r$ + expected inflation.)</p>
+        <div class="eg"><b>Example:</b> a 5% nominal loan with 2% inflation costs you ~3% in real terms.</div></div>
+      <div class="gterm"><h4>Private / public / national saving <span class="sym">$S^{pr},S^{pub},S$</span></h4>
+        <p><b>Private saving</b> $S^{pr}=Y-T-C$ is what households keep after taxes and consumption. <b>Public saving</b> $S^{pub}=T-G$ is the government's budget balance. <b>National saving</b> $S=S^{pr}+S^{pub}=Y-C-G$.</p>
+        <div class="eg"><b>Example:</b> if the government runs a deficit ($G>T$), public saving is negative and drags down national saving.</div></div>
+      <div class="gterm"><h4>Loanable funds &amp; crowding out <span class="sym"></span></h4>
+        <p>The market where saving (supply) meets investment (demand); the real interest rate clears it. <b>Crowding out</b> = when the government borrows more, it pushes $r$ up and squeezes out private investment.</p>
+        <div class="eg"><b>Example:</b> a big deficit-financed spending program raises $r$, so firms invest less — public spending "crowds out" private investment.</div></div>
+      <div class="gterm"><h4>Net exports <span class="sym">$NX$</span></h4>
+        <p>Exports minus imports. It equals the country's <b>net capital outflow</b> — a trade surplus means you're lending abroad (buying foreign assets); a deficit means you're borrowing from abroad.</p>
+        <div class="eg"><b>Example:</b> the U.S. runs a trade deficit, so it has net capital <em>inflow</em> — foreigners fund the gap by buying U.S. assets.</div></div>
+      <div class="gterm"><h4>Real exchange rate <span class="sym">$\varepsilon=Pe/P^\*$</span></h4>
+        <p>The price of domestic goods in terms of foreign goods. An <b>increase = real appreciation</b> (your goods get relatively expensive → fewer exports). It's what adjusts to balance net exports in the open economy.</p>
+        <div class="eg"><b>Example:</b> if the euro appreciates, Dutch goods cost more abroad, so exports fall and $NX$ declines.</div></div>
+      <div class="gterm"><h4>World interest rate <span class="sym">$r^\*$</span></h4>
+        <p>In a <b>small</b> open economy with free capital flows, you take the world real interest rate as given — domestic $r$ can't stray from $r^\*$, because capital would instantly flood in or out.</p>
+        <div class="eg"><b>Example:</b> if world confidence rises and $r^\*$ climbs, domestic investment falls even though nothing changed at home.</div></div>
+    </div>
+
+    <div class="gloss-group">Money, inflation &amp; unemployment</div>
+    <div class="gloss">
+      <div class="gterm"><h4>Monetary base <span class="sym">$B=C+R$</span></h4>
+        <p>"High-powered money" the central bank directly controls: currency in circulation ($C$) plus banks' reserves ($R$). It's the raw material banks build the money supply on.</p>
+        <div class="eg"><b>Example:</b> if a bank moves €1m from its vault cash to its reserve account at the central bank, $B$ is unchanged — only its composition shifts.</div></div>
+      <div class="gterm"><h4>Money supply (M1) <span class="sym">$M=C+D$</span></h4>
+        <p>Currency held by the public plus demand deposits ($D$). It's much bigger than the base because banks lend deposits out, creating more deposits.</p>
+        <div class="eg"><b>Example:</b> you deposit €100; the bank keeps €20 as reserves and lends €80, which becomes someone else's deposit — money multiplies.</div></div>
+      <div class="gterm"><h4>Money multiplier <span class="sym">$m=\frac{cr+1}{cr+rr}$</span></h4>
+        <p>How many euros of money supply each euro of base creates. It depends on the <b>currency-deposit ratio</b> $cr=C/D$ (how much cash the public holds) and the <b>reserve-deposit ratio</b> $rr=R/D$ (how much banks keep). $M=m\cdot B$.</p>
+        <div class="eg"><b>Example:</b> $cr=\tfrac12$, $rr=\tfrac14$ → $m=\frac{1.5}{0.75}=2$; each €1 of base supports €2 of money. Lower $rr$ → bigger $m$.</div></div>
+      <div class="gterm"><h4>Quantity theory &amp; velocity <span class="sym">$MV=PY$</span></h4>
+        <p><b>Velocity</b> $V=PY/M$ is how often each euro is spent per year. If $V$ is stable, money growth beyond output growth becomes inflation: $\pi=\frac{\Delta M}{M}-\frac{\Delta Y}{Y}$.</p>
+        <div class="eg"><b>Example:</b> money grows 6%, real output 2% → about 4% inflation. In hyperinflation people spend cash instantly, so $V$ is huge.</div></div>
+      <div class="gterm"><h4>Seigniorage &amp; the inflation tax <span class="sym"></span></h4>
+        <p><b>Seigniorage</b> is the real revenue a government gets by printing money; the <b>inflation tax</b> is the value that inflation erodes from money-holders. They're equal — and <b>negative if the money supply shrinks</b>.</p>
+        <div class="eg"><b>Example:</b> a government financing a deficit by printing money is effectively taxing everyone who holds cash.</div></div>
+      <div class="gterm"><h4>Unemployment rates <span class="sym">$u,e,p$</span></h4>
+        <p><b>$u=U/L$</b> (unemployed ÷ labour force), <b>$p=L/POP$</b> (labour force ÷ working-age population = participation), <b>$e=E/POP$</b> (employed ÷ working-age = employment rate). They link as $e=p(1-u)$.</p>
+        <div class="eg"><b>Example:</b> $p=80\%$, $u=5\%$ → employment rate $e=0.8(0.95)=76\%$.</div></div>
+      <div class="gterm"><h4>Natural rate &amp; efficiency wages <span class="sym">$u^n$</span></h4>
+        <p>The <b>natural rate</b> is the unemployment that remains even in "normal" times = <b>frictional</b> (people between jobs) + <b>structural</b> (wages stuck above market-clearing). <b>Efficiency-wage</b> theory explains part of structural unemployment: firms pay above-market wages because it raises productivity.</p>
+        <div class="eg"><b>Example:</b> a firm pays more than it "needs" so workers work harder and quit less — but that above-market wage leaves some workers unemployed.</div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SHOCKS -->
+  <section class="block" id="m-shocks">
+    <div class="sec-head"><div class="ico rose">⚡</div><h3>Shock Walkthroughs (step-by-step, with examples)</h3></div>
+    <p class="sec-sub">Parts 2–3 of the midterm are pure shock analysis. Each shock below is traced the way the exam wants it: the trigger, the chain of events, and what happens to <em>every</em> variable in the new equilibrium. Open one and read it like a story.</p>
+
+    <details class="shock"><summary><span class="badge fiscal">Closed · fiscal</span> ↑ Government purchases ($G$ rises) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>The government launches a big infrastructure program, raising $G$. Output $Y$ is already at full employment (classical model), so the economy can't produce <em>more</em> — the extra spending must come at the expense of something else.</p></div>
+        <ol class="chain">
+          <li><b>The trigger.</b> Higher $G$ means the government saves less: public saving $S^{pub}=T-G$ falls. Since $T$ and $Y$ are unchanged, private saving is unchanged, so <b>national saving falls</b> — the vertical saving curve shifts <b>left</b>.</li>
+          <li><b>Disequilibrium.</b> At the old interest rate there's now <b>excess demand</b> for loanable funds (the government wants to borrow more, but less saving is available).</li>
+          <li><b>The adjustment.</b> The <b>real interest rate $r$ rises</b>. As $r$ climbs, firms borrow and invest less — we move <em>along</em> the investment curve.</li>
+          <li><b>New equilibrium.</b> $r$ settles where the smaller saving again equals investment. Private investment has been <b>crowded out</b>.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v down">↓</span></div>
+          <div class="r"><span>Real rate $r$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Private saving</span><span class="v flat">→</span></div>
+          <div class="r"><span>Public saving</span><span class="v down">↓</span></div>
+          <div class="r"><span>Total saving</span><span class="v down">↓</span></div>
+        </div>
+        <p class="maprow"><b>Exam mapping:</b> disequilibrium = <em>excess demand</em>; shift <em>of</em> the <em>saving</em> curve to the <em>left</em>; then interest rate rises, moving <em>along</em> the <em>investment</em> curve.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge fiscal">Closed · fiscal</span> ↓ Taxes ($T$ falls — a tax cut) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>The government cuts income taxes to "put money in people's pockets." Households now have more disposable income $Y-T$, so they consume more. But output is fixed — so where does the extra consumption come from?</p></div>
+        <ol class="chain">
+          <li><b>The trigger.</b> Lower $T$ raises disposable income, so <b>consumption $C$ rises</b> (by $c\times$ the tax cut). Public saving $S^{pub}=T-G$ falls by the full tax cut.</li>
+          <li><b>Net effect on saving.</b> Private saving actually <em>rises</em> a bit (households save part of the tax cut: $+ (1-c)\Delta T$), but public saving falls by more, so <b>national saving falls</b> overall → saving curve shifts <b>left</b>.</li>
+          <li><b>Disequilibrium &amp; adjustment.</b> Excess demand for funds → the <b>real interest rate rises</b> → investment falls (crowding out) along the investment curve.</li>
+          <li><b>New equilibrium.</b> Higher $r$, lower $I$. The tax cut didn't raise output — it shifted resources from investment toward consumption.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v down">↓</span></div>
+          <div class="r"><span>Real rate $r$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Private saving</span><span class="v up">↑</span></div>
+          <div class="r"><span>Public saving</span><span class="v down">↓</span></div>
+          <div class="r"><span>Total saving</span><span class="v down">↓</span></div>
+        </div>
+        <p class="maprow"><b>Exam mapping:</b> this is the exact 2025 midterm Part-2 scenario. Excess demand; shift <em>of</em> the saving curve <em>left</em>; rate rises; move <em>along</em> the investment curve.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge external">Open · external</span> ↑ Autonomous net exports (foreign demand jumps) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>Foreign consumers suddenly love our products, so autonomous net exports $\overline{NX}$ rise. Surprising result: in a small open economy, <b>actual net exports don't change at all</b> — only the exchange rate does. Here's why.</p></div>
+        <ol class="chain">
+          <li><b>The anchor.</b> The domestic rate is stuck at the world rate $r=r^\*$, so investment $I$ is unchanged. Output $Y$ is fixed and $T,G$ are unchanged, so national saving is unchanged. Therefore <b>excess saving $S-I$ is unchanged</b>.</li>
+          <li><b>The identity bites.</b> But $S-I$ = net capital outflow = <b>net exports</b>. If $S-I$ can't change, then <b>actual $NX$ can't change either</b>.</li>
+          <li><b>So what gives?</b> The extra foreign demand pushes up the demand for our currency → the <b>real exchange rate appreciates</b> ($\varepsilon$ rises).</li>
+          <li><b>New equilibrium.</b> The appreciation makes our goods pricier abroad, cutting exports by exactly the amount autonomous demand rose. Net exports end up unchanged; only $\varepsilon$ is higher.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Net exports $NX$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Real rate $r$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Real exch. $\varepsilon$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Total saving</span><span class="v flat">→</span></div>
+        </div>
+        <p class="maprow"><b>Exam mapping:</b> the 2025 midterm Part-3 scenario. The lesson: in a small open economy, a pure demand-for-our-goods shock is absorbed entirely by the exchange rate.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge fiscal">Open · fiscal</span> ↓ Taxes (tax cut in the open economy) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>Same tax cut as before, but now in a small open economy. The interest rate can't move (it's tied to $r^\*$), so the <b>exchange rate</b> does the adjusting instead of investment.</p></div>
+        <ol class="chain">
+          <li><b>The trigger.</b> Lower $T$ → consumption rises → national saving falls. The excess-saving curve ($S-I$) shifts <b>left</b>.</li>
+          <li><b>Rate is pinned.</b> $r=r^\*$, so investment $I$ is <b>unchanged</b> (unlike the closed economy, there's no crowding out via $r$).</li>
+          <li><b>Exchange-rate adjustment.</b> Lower excess saving = less net capital outflow = lower net exports. To cut $NX$, the <b>real exchange rate appreciates</b> ($\varepsilon$ rises).</li>
+          <li><b>New equilibrium.</b> Consumption up, net exports down, currency stronger; investment and $r$ untouched.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Net exports $NX$</span><span class="v down">↓</span></div>
+          <div class="r"><span>Real rate $r$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Real exch. $\varepsilon$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Total saving</span><span class="v down">↓</span></div>
+        </div>
+        <p class="maprow"><b>Contrast to remember:</b> closed economy → the shock hits the <em>interest rate</em>; open economy → the same shock hits the <em>exchange rate</em>, and $I$ is spared.</p>
       </div></details>
   </section>
 
@@ -585,11 +792,13 @@
 
   <nav class="subnav">
     <a href="#f-concepts">① New Theory</a>
-    <a href="#f-highprob">② High-Probability</a>
-    <a href="#f-mcq">③ Theory MCQs</a>
-    <a href="#f-num">④ Numerical Practice</a>
-    <a href="#f-likely">⑤ Likely vs Unlikely</a>
-    <a href="#f-cheat">⑥ Formula Sheet</a>
+    <a href="#f-terms">② Key Terms</a>
+    <a href="#f-shocks">③ Shocks Explained</a>
+    <a href="#f-highprob">④ High-Probability</a>
+    <a href="#f-mcq">⑤ Theory MCQs</a>
+    <a href="#f-num">⑥ Numerical</a>
+    <a href="#f-likely">⑦ Likely vs Unlikely</a>
+    <a href="#f-cheat">⑧ Formula Sheet</a>
   </nav>
 
   <!-- CONCEPTS -->
@@ -665,6 +874,216 @@
           <p>Japan's Lost Decade = <b>deflation</b> and a <b>very low</b> nominal interest rate (with a liquidity trap) — <em>not</em> high inflation/high rates.</p>
           <p>In a liquidity trap, fiscal policy (or unconventional monetary policy) becomes relatively more important.</p></div>
         <div class="tested"><div class="lbl">🎯 How it's tested</div><p>True/false MCQs that flip a fact (e.g. "Japan systematically raised money supply causing high inflation" — false).</p></div>
+      </div></details>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- KEY TERMS -->
+  <section class="block" id="f-terms">
+    <div class="sec-head"><div class="ico indigo">📖</div><h3>Key Terms — Deep Dive</h3></div>
+    <p class="sec-sub">The business-cycle vocabulary, each in plain English with a symbol and an example. (Money/GDP/classical terms live in the Midterm Hub glossary — still examinable.)</p>
+
+    <div class="gloss-group">Demand-side building blocks</div>
+    <div class="gloss">
+      <div class="gterm"><h4>Planned expenditure <span class="sym">$PE=C+I+G+NX$</span></h4>
+        <p>Total spending people <em>plan</em> to do at a given income. In the short run, firms produce to meet it, so equilibrium is where output equals planned expenditure ($Y=PE$, the 45° line).</p>
+        <div class="eg"><b>Example:</b> if households plan to spend more, firms see shelves emptying and ramp up production until $Y$ catches up to $PE$.</div></div>
+      <div class="gterm"><h4>Marginal propensity to consume <span class="sym">$c$</span></h4>
+        <p>The fraction of an extra euro of disposable income that gets spent (the rest is saved). It's the engine of the multiplier: the higher $c$, the more each round of spending re-circulates.</p>
+        <div class="eg"><b>Example:</b> $c=0.8$ means €1 more income → €0.80 more consumption → which becomes someone else's income, and so on.</div></div>
+      <div class="gterm"><h4>The multiplier <span class="sym">$\mu$</span></h4>
+        <p>How much equilibrium output rises per €1 of extra autonomous spending. Closed economy with lump-sum taxes: $\mu=\frac{1}{1-c}$. With proportional taxes $t$ and income-sensitive imports $z$: $\mu=\frac{1}{1-c(1-t)+z}$ — smaller, because taxes and imports "leak" spending away.</p>
+        <div class="eg"><b>Example:</b> $c=0.8$, $t=0.25$, $z=0.1$ → $\mu=\frac{1}{1-0.6+0.1}=2$: €1 of extra $G$ raises output by €2.</div></div>
+      <div class="gterm"><h4>Liquidity preference / money demand <span class="sym">$(M/P)^d=\bar L+kY-mi$</span></h4>
+        <p>How much real money people want to hold. It <em>rises</em> with income $Y$ (more transactions) and <em>falls</em> with the interest rate $i$ (bonds become more tempting). The interest rate moves to make demand equal the fixed supply.</p>
+        <div class="eg"><b>Example:</b> as the economy booms and $Y$ rises, people need more cash for transactions → $i$ is bid up.</div></div>
+    </div>
+
+    <div class="gloss-group">The IS-LM &amp; open-economy models</div>
+    <div class="gloss">
+      <div class="gterm"><h4>IS curve <span class="sym">goods market</span></h4>
+        <p>Every combination of output $Y$ and interest rate $i$ for which the <b>goods market</b> clears. It slopes <b>down</b>: a higher $i$ chokes off investment, so equilibrium output is lower. Demand shocks (↑$G$, tax cuts, ↑ optimism) shift it right.</p>
+        <div class="eg"><b>Example:</b> a wave of business optimism raises investment at every $i$ → IS shifts right.</div></div>
+      <div class="gterm"><h4>LM curve <span class="sym">money market</span></h4>
+        <p>Every $(Y,i)$ for which the <b>money market</b> clears. It slopes <b>up</b>: higher $Y$ raises money demand, pushing $i$ up. More money ($↑M$) or lower prices ($↓P$) shift it right (lower $i$).</p>
+        <div class="eg"><b>Example:</b> the central bank prints money → real money supply up → LM shifts right → $i$ falls.</div></div>
+      <div class="gterm"><h4>Aggregate demand <span class="sym">AD</span></h4>
+        <p>The output level where <em>both</em> goods and money markets clear, drawn against the price level $P$. It slopes down because a lower $P$ raises real money balances → lower $i$ → more investment → more $Y$.</p>
+        <div class="eg"><b>Example:</b> a falling price level boosts real money, cuts interest rates, and lifts demand — the AD curve's logic.</div></div>
+      <div class="gterm"><h4>Perfect capital mobility <span class="sym">$r=r^\*$</span></h4>
+        <p>Capital flows instantly to wherever returns are highest, so a small economy's interest rate is glued to the world rate. Any gap triggers massive flows that force it back — and those flows move the <b>exchange rate</b>.</p>
+        <div class="eg"><b>Example:</b> if domestic $i$ ticks above $i^\*$, foreign money floods in, appreciating the currency until the gap closes.</div></div>
+      <div class="gterm"><h4>Floating vs fixed exchange rates <span class="sym"></span></h4>
+        <p><b>Floating:</b> the exchange rate is free to move; the central bank controls $M$. <b>Fixed (pegged):</b> the central bank promises a fixed rate and must buy/sell currency (adjusting $M$) to defend it — so it <em>gives up</em> control of $M$. This single choice flips which policy works.</p>
+        <div class="eg"><b>Example:</b> under a peg, a central bank facing depreciation pressure must sell reserves and shrink $M$ — it can't run an independent monetary policy.</div></div>
+      <div class="gterm"><h4>IS* / LM* curves <span class="sym">Mundell-Fleming</span></h4>
+        <p>IS-LM redrawn for the open economy in output–exchange-rate space, given $r=r^\*$. $LM^\*$ is vertical (the money market pins down $Y$); $IS^\*$ slopes down in the exchange rate.</p>
+        <div class="eg"><b>Example:</b> because $LM^\*$ is vertical, under floating rates only things that shift $LM^\*$ (i.e. monetary policy) can change $Y$.</div></div>
+    </div>
+
+    <div class="gloss-group">Supply side, expectations &amp; crises</div>
+    <div class="gloss">
+      <div class="gterm"><h4>SRAS, LRAS &amp; potential output <span class="sym">$\bar Y$</span></h4>
+        <p><b>Short-run aggregate supply</b> slopes up (prices/wages are sticky, so firms produce more when prices rise). <b>Long-run aggregate supply</b> is vertical at <b>potential output</b> — the level set by technology and resources, independent of prices.</p>
+        <div class="eg"><b>Example:</b> a demand boom raises output above potential briefly, but once wages catch up, output returns to $\bar Y$ and only prices are higher.</div></div>
+      <div class="gterm"><h4>Phillips curve <span class="sym">$\pi=\pi^e-\beta(u-u^n)$</span></h4>
+        <p>The short-run trade-off between inflation and unemployment. Lower unemployment (below its natural rate $u^n$) comes with higher inflation — but only around <em>expected</em> inflation $\pi^e$, which shifts the whole curve.</p>
+        <div class="eg"><b>Example:</b> if everyone expects 5% inflation, that expectation gets built into wages and prices, shifting the trade-off up.</div></div>
+      <div class="gterm"><h4>Adaptive vs rational expectations <span class="sym">$\pi^e$</span></h4>
+        <p><b>Adaptive:</b> people form expectations by looking backward, so they can be fooled — even <em>anticipated</em> policy has short-run real effects. <b>Rational:</b> people use all available information, so a <em>fully anticipated</em> demand shock has <b>no</b> short-run real effect (prices adjust instantly).</p>
+        <div class="eg"><b>Example:</b> a pre-announced money increase does nothing to output under rational expectations — prices simply jump.</div></div>
+      <div class="gterm"><h4>Lucas critique <span class="sym"></span></h4>
+        <p>You can't predict the effect of a new policy from historical data, because the policy itself changes how people form expectations. Relationships like a fixed Phillips curve break down once you try to exploit them.</p>
+        <div class="eg"><b>Example:</b> a central bank that always inflates to cut unemployment finds the trick stops working once people expect the inflation.</div></div>
+      <div class="gterm"><h4>Liquidity trap <span class="sym">$i\approx0$</span></h4>
+        <p>When the nominal interest rate is near zero, the central bank can't cut it further, so conventional monetary policy loses traction. Fiscal policy (or unconventional tools) becomes relatively more powerful.</p>
+        <div class="eg"><b>Example:</b> Japan in the 1990s and the U.S. after 2008 both hit near-zero rates and struggled to stimulate with rate cuts.</div></div>
+      <div class="gterm"><h4>Stagflation <span class="sym"></span></h4>
+        <p>Falling output <em>and</em> rising prices at the same time — the fingerprint of an adverse <b>supply</b> shock (a demand shock moves $Y$ and $P$ the <em>same</em> way, so it can't cause this).</p>
+        <div class="eg"><b>Example:</b> the 1970s oil shocks raised production costs, pushing prices up while output and employment fell.</div></div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SHOCKS -->
+  <section class="block" id="f-shocks">
+    <div class="sec-head"><div class="ico rose">⚡</div><h3>Shock Walkthroughs (step-by-step, with examples)</h3></div>
+    <p class="sec-sub">Parts 2–3 of the final are shock analysis in the IS-LM and Mundell-Fleming models. Each is traced below with a real example and a full new-equilibrium summary. For open-economy shocks, always ask first: <b>floating or fixed?</b></p>
+
+    <details class="shock"><summary><span class="badge price">IS-LM · price</span> ↓ Aggregate price level ($P$ falls) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>Prices across the economy fall (say a bout of deflation), while the central bank keeps the <em>nominal</em> money supply $M$ constant. This is the mechanism behind the downward-sloping AD curve.</p></div>
+        <ol class="chain">
+          <li><b>Real money jumps.</b> With $M$ fixed and $P$ lower, the <b>real</b> money supply $M/P$ rises. At the current output there's now more money than people want to hold.</li>
+          <li><b>Rates fall.</b> People use the extra money to <b>buy bonds</b>, bidding bond prices up and the <b>interest rate down</b> — the LM curve shifts <b>right</b>.</li>
+          <li><b>Investment responds.</b> A lower $i$ makes borrowing cheap → <b>investment rises</b> → excess demand in the goods market.</li>
+          <li><b>Output expands.</b> Firms produce more, so $Y$ rises. Higher $Y$ raises money demand, nudging $i$ partly back up, until both markets clear again.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Real money $M/P$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Interest rate $i$</span><span class="v down">↓</span></div>
+        </div>
+        <p class="maprow"><b>Exam mapping:</b> the 2023 final Part-2 scenario. Curve = LM shifts <em>right</em>; agents <em>buy</em> bonds; rate falls. This traces out one point further down the AD curve.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge fiscal">IS-LM · fiscal</span> ↑ Government purchases ($G$ rises) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>A fiscal stimulus in a closed economy with the central bank holding $M$ fixed. Unlike the classical model, output <em>can</em> rise here (short run) — but there's still partial crowding out.</p></div>
+        <ol class="chain">
+          <li><b>Demand up.</b> Higher $G$ raises planned expenditure → the <b>IS curve shifts right</b>.</li>
+          <li><b>Output and rates rise.</b> More output raises money demand; with $M$ fixed, the <b>interest rate rises</b> as the economy climbs <em>along</em> the LM curve.</li>
+          <li><b>Partial crowding out.</b> The higher $i$ trims private investment — so output rises by <em>less</em> than the simple multiplier would suggest.</li>
+          <li><b>New equilibrium.</b> Higher $Y$, higher $i$, higher $C$ (more income), lower $I$ (higher rate). Real money supply is unchanged ($M,P$ fixed).</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v down">↓</span></div>
+          <div class="r"><span>Real money $M/P$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Interest rate $i$</span><span class="v up">↑</span></div>
+        </div>
+        <p class="maprow"><b>Key contrast:</b> in the <em>classical</em> (midterm) model output is fixed and $G$ fully crowds out $I$; in <em>IS-LM</em> (short run) output rises and crowding out is only partial.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge money">IS-LM · monetary</span> ↑ Money supply ($M$ rises) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>The central bank eases policy, expanding $M$ (prices sticky in the short run). This is standard monetary stimulus.</p></div>
+        <ol class="chain">
+          <li><b>More money.</b> Real money supply $M/P$ rises → the <b>LM curve shifts right</b>.</li>
+          <li><b>Rates fall.</b> To get people to hold the extra money, the <b>interest rate falls</b> (they buy bonds).</li>
+          <li><b>Investment &amp; output rise.</b> Cheaper borrowing → more investment → more output → more consumption.</li>
+          <li><b>New equilibrium.</b> Higher $Y,C,I$; lower $i$; higher real money supply. (No IS shift — the IS curve didn't move.)</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Real money $M/P$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Interest rate $i$</span><span class="v down">↓</span></div>
+        </div>
+        <p class="maprow"><b>Exam mapping:</b> movement is <em>along</em> the IS curve (goods market) driven by a <em>shift of</em> the LM curve.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge external">Mundell-Fleming · floating</span> ↓ Autonomous net exports (floating rates) <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>Foreign demand for our exports drops (a recession abroad), so autonomous $NX$ falls — under <b>floating</b> exchange rates. Like the classical open economy, the shock ends up hitting only the exchange rate.</p></div>
+        <ol class="chain">
+          <li><b>Demand falls.</b> Lower $\overline{NX}$ shifts $IS^\*$ left → output tends to fall.</li>
+          <li><b>Capital reacts.</b> Lower output lowers money demand, nudging the domestic rate below $i^\*$. Instantly, <b>capital flows out</b> chasing higher foreign returns.</li>
+          <li><b>Currency depreciates.</b> The capital outflow means people sell the domestic currency → it <b>depreciates</b>.</li>
+          <li><b>Net exports recover.</b> A weaker currency makes our goods cheaper abroad → net exports rise back to where they started. $IS^\*$ shifts back; output returns to its original level.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Consumption $C$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Investment $I$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Net exports $NX$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Interest rate $i$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Exchange rate $e$</span><span class="v down">↓ (depreciates)</span></div>
+        </div>
+        <p class="maprow"><b>Exam mapping:</b> the 2023 final Part-3 scenario. Under floating rates, a net-export shock changes <em>only</em> the exchange rate — everything real is unchanged.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge fiscal">Mundell-Fleming</span> Fiscal expansion — floating vs fixed <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>The government raises $G$ in a small open economy. Whether output moves depends entirely on the exchange-rate regime — this is the single most important open-economy idea on the exam.</p></div>
+        <p style="font-weight:700;color:var(--brand-ink);margin:14px 0 2px">Under FLOATING rates — fiscal policy is powerless (for $Y$)</p>
+        <ol class="chain">
+          <li>↑$G$ shifts $IS^\*$ right → domestic rate tends to rise above $i^\*$.</li>
+          <li>Capital <b>flows in</b> chasing the higher rate → the currency <b>appreciates</b>.</li>
+          <li>Appreciation makes exports dearer → <b>net exports fall</b> by exactly the fiscal injection.</li>
+          <li>Output ends up <b>unchanged</b>; the government "crowded out" net exports via the exchange rate.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Net exports $NX$</span><span class="v down">↓</span></div>
+          <div class="r"><span>Exchange rate $e$</span><span class="v up">↑ (appreciates)</span></div>
+        </div>
+        <p style="font-weight:700;color:var(--brand-ink);margin:16px 0 2px">Under FIXED rates — fiscal policy is powerful</p>
+        <ol class="chain">
+          <li>↑$G$ shifts $IS^\*$ right → rate tends to rise → appreciation pressure.</li>
+          <li>To hold the peg, the central bank must <b>expand $M$</b> (sell domestic currency), shifting $LM^\*$ right.</li>
+          <li>With the exchange rate held fixed, net exports don't get crowded out → <b>output rises</b>.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Money supply $M$</span><span class="v up">↑ (to defend peg)</span></div>
+          <div class="r"><span>Exchange rate $e$</span><span class="v flat">→ (fixed)</span></div>
+        </div>
+        <p class="maprow"><b>Rule:</b> Floating → monetary policy works, fiscal doesn't. Fixed → fiscal works, monetary doesn't.</p>
+      </div></details>
+
+    <details class="shock"><summary><span class="badge money">Mundell-Fleming</span> Monetary expansion — floating vs fixed <span class="chev">›</span></summary>
+      <div class="sbody">
+        <div class="shk-eg"><div class="lbl">🌍 Real example</div><p>The central bank raises $M$. The mirror image of the fiscal case: monetary policy is powerful under floating rates and useless under a peg.</p></div>
+        <p style="font-weight:700;color:var(--brand-ink);margin:14px 0 2px">Under FLOATING rates — monetary policy is powerful</p>
+        <ol class="chain">
+          <li>↑$M$ shifts $LM^\*$ right → domestic rate tends to fall below $i^\*$.</li>
+          <li>Capital <b>flows out</b> → the currency <b>depreciates</b>.</li>
+          <li>Depreciation makes exports cheaper → <b>net exports and output rise</b>.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Net exports $NX$</span><span class="v up">↑</span></div>
+          <div class="r"><span>Exchange rate $e$</span><span class="v down">↓ (depreciates)</span></div>
+        </div>
+        <p style="font-weight:700;color:var(--brand-ink);margin:16px 0 2px">Under FIXED rates — monetary policy is powerless</p>
+        <ol class="chain">
+          <li>↑$M$ pushes the rate down → depreciation pressure on the peg.</li>
+          <li>To defend the peg, the central bank must <b>buy back its own currency</b>, selling foreign reserves — which shrinks $M$ right back to where it started.</li>
+          <li>Nothing real changes: <b>output is unchanged</b>. The money supply is not truly under the central bank's control while it defends a peg.</li>
+        </ol>
+        <div class="result">
+          <div class="r"><span>Output $Y$</span><span class="v flat">→</span></div>
+          <div class="r"><span>Money supply $M$</span><span class="v flat">→ (forced back)</span></div>
+          <div class="r"><span>Exchange rate $e$</span><span class="v flat">→ (fixed)</span></div>
+        </div>
+        <p class="maprow"><b>Memory hook:</b> under a peg the central bank "spends" its independence to hold the rate — so it can't also steer output with money.</p>
       </div></details>
   </section>
 
