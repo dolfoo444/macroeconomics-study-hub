@@ -260,7 +260,6 @@
     <a href="#m-likely">⑦ Likely vs Unlikely</a>
     <a href="#m-cheat">⑧ Cheat Sheet</a>
     <a href="#m-memorize">⑨ Must-Memorize</a>
-    <a href="#materials">📚 Materials</a>
   </nav>
 
   <!-- CONCEPTS -->
@@ -291,6 +290,18 @@
           <p><b>Chain-weighting</b> averages the growth rate computed with base year 1 and with base year 2 (geometric mean ≈ arithmetic mean of the two growth rates), removing the arbitrariness of which year is the base.</p></div>
         <div class="tested"><div class="lbl">🎯 How it's tested</div><p><b>Every exam</b> has a numerical GDP question (Part 5): compute real GDP for each base year, both growth rates, then the chain-weighted growth rate and level. A theory MCQ often gives nominal &amp; real GDP and asks what you <em>can</em> vs <em>cannot</em> conclude about deflator vs CPI inflation.</p></div>
       </div></details>
+
+    <details class="acc"><summary><span class="tag wk">Wk 1</span> GDP at PPP — the International-Dollar Method <span class="chev">›</span></summary>
+      <div class="body">
+        <div class="intuition"><div class="lbl">💡 Intuition</div>
+          <p>To compare one country's output with another's, you can't just convert with the market exchange rate — it's volatile, and it <b>understates poorer countries</b> because things that aren't traded internationally (haircuts, rent) are much cheaper there. So economists value every country's output in a fictitious common currency with equal purchasing power everywhere: the <b>international dollar</b>. That's <b>GDP at Purchasing Power Parity (PPP)</b>.</p></div>
+        <div class="formal"><div class="lbl">📐 The method (benchmark-basket)</div>
+          <p><b>1.</b> Pick a benchmark country (usually the U.S.). Split its whole output into tiny identical baskets each worth \(\$1\); define <b>one international dollar = one such basket</b>. So the benchmark's GDP in international dollars equals its nominal dollar GDP.</p>
+          <p><b>2.</b> Price that <em>same</em> basket using the <em>other</em> country's prices → that tells you how many of its currency units equal one international dollar.</p>
+          <p><b>3.</b> Divide the other country's nominal GDP by that price to get its GDP in international dollars.</p></div>
+        <div class="tested"><div class="lbl">🎯 How it's tested</div><p>A true/false MCQ on "GDP in international dollars": it is <b>not</b> moved one-for-one by the euro–dollar exchange rate, and it's built from <em>quantities</em> plus the benchmark basket — not the market exchange rate. Worked in Problem N5 below.</p></div>
+      </div>
+    </details>
 
     <details class="acc"><summary><span class="tag wk">Wk 2</span> Circular Flow — Closed Economy (Loanable Funds) <span class="chev">›</span></summary>
       <div class="body">
@@ -793,6 +804,15 @@
         <p class="step">(Check with the flow equation $\Delta u_{t+1}=(s+f)\big[\tfrac{s}{s+f}-u_t\big]=0.40(0.05-0.10)=-0.02$ → $u$ drops ~2 points toward 5%.)</p>
         <p><span class="ans">Answers:</span> $u^n=5\%$; period-0 rate is above it, so unemployment falls.</p></div></details>
     </div>
+
+    <div class="prob"><div class="q"><div class="meta">Problem N5 · GDP at PPP (international dollars)</div>
+      <p>Country <b>B</b> (benchmark, prices in dollars) produces good 1: 200 units at \(\$3\); good 2: 100 units at \(\$4\). Country <b>A</b> (prices in euros) produces good 1: 40 units at €2.50; good 2: 20 units at €5. Express <b>both</b> GDPs in international dollars, and say which country produces more.</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>Benchmark B.</b> Nominal GDP \(=200(3)+100(4)=\$1000\). Split into 1000 baskets of \(\$1\) each; one basket \(=\tfrac{200}{1000}=0.2\) units of good 1 and \(\tfrac{100}{1000}=0.1\) units of good 2. Define one international dollar = one basket, so B's GDP \(=1000\) international dollars.</p>
+        <p class="step"><b>Price the basket in A's euros.</b> \(0.2(€2.50)+0.1(€5)=€0.50+€0.50=€1\) per international dollar.</p>
+        <p class="step"><b>Country A.</b> Nominal GDP \(=40(2.50)+20(5)=€100+€100=€200\). Convert: \(€200 \div (€1\text{ per int. dollar}) = 200\) international dollars.</p>
+        <p><span class="ans">Answer:</span> B \(=1000\), A \(=200\) international dollars — so B produces 5× as much. Notice we <em>never</em> used the market euro–dollar rate; the comparison rests on quantities valued at a common purchasing power.</p></div></details>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -893,7 +913,8 @@
       <div class="card"><h4><span class="d"></span>Formulas — know cold</h4><ul>
         <li>Deflator $=\dfrac{\text{nominal GDP}}{\text{real GDP}}\times100$</li>
         <li>Real GDP $=\sum p^{\text{base}}_i q^t_i$; growth $=\dfrac{x_{t+1}-x_t}{x_t}$</li>
-        <li>Chain growth $\approx\tfrac12(g^1+g^2)$</li>
+        <li>Chain growth $\approx\tfrac12(g^1+g^2)$; chain <b>level</b>: anchor to nominal GDP in the base year, then ×$(1+g^{ch})$ forward</li>
+        <li>GDP at PPP: value output in international dollars via the benchmark's \(\$1\) baskets (ignore the market exchange rate)</li>
         <li>$e=p(1-u)$</li>
         <li>$u^n=\dfrac{s}{s+f}$ (separation ÷ [separation + finding])</li>
         <li>$B=C+R$; $M=C+D$; $m=\dfrac{cr+1}{cr+rr}$; $M=mB$</li>
@@ -965,7 +986,6 @@
     <a href="#f-likely">⑦ Likely vs Unlikely</a>
     <a href="#f-cheat">⑧ Cheat Sheet</a>
     <a href="#f-memorize">⑨ Must-Memorize</a>
-    <a href="#materials">📚 Materials</a>
   </nav>
 
   <!-- CONCEPTS -->
@@ -1629,85 +1649,6 @@
   </section>
 </div>
 
-  <section class="block" id="materials">
-    <div class="sec-head"><div class="ico gold">📚</div><h3>Course Materials</h3></div>
-    <p class="sec-sub">Your lecture notes, theory decks, multiple-choice sets, homework and past exams. These open in your <b>private</b> GitHub backup — sign in to GitHub to view them (they are private to you, not public).</p>
-    <div class="matwrap">
-      <div class="matcol"><h4>General</h4>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/General/20252026_CourseManual_QE.pdf" target="_blank" rel="noopener">Course Manual</a>
-      </div>
-      <div class="matcol"><h4>Lectures</h4>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20252026_ISLM_QE.pdf" target="_blank" rel="noopener">ISLM</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20252026_Keynesian_Cross_QE.pdf" target="_blank" rel="noopener">Keynesian Cross</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20252026_MundellFleming_QE.pdf" target="_blank" rel="noopener">Mundell Fleming</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20262027_ADAS_QE.pdf" target="_blank" rel="noopener">ADAS</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20262027_Inflation_QE.pdf" target="_blank" rel="noopener">Inflation</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20262027_Liquidity_Preference_QE.pdf" target="_blank" rel="noopener">Liquidity Preference</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20262027_MonetarySystem_QE.pdf" target="_blank" rel="noopener">Monetary System</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20262027_Part3_Introduction_QE.pdf" target="_blank" rel="noopener">Part3 Introduction</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/20262027_Unemployment_QE.pdf" target="_blank" rel="noopener">Unemployment</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/lec%201%2B2.pdf" target="_blank" rel="noopener">Lec 1+2</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/lec%203.pdf" target="_blank" rel="noopener">Lec 3</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/lec%204.pdf" target="_blank" rel="noopener">Lec 4</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/lec%205.pdf" target="_blank" rel="noopener">Lec 5</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/lec%206.pdf" target="_blank" rel="noopener">Lec 6</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Lectures/lec%207.pdf" target="_blank" rel="noopener">Lec 7</a>
-      </div>
-      <div class="matcol"><h4>In-Depth-Notes</h4>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/In-Depth-Notes/20262027_Week3_Lecture1_In%20depth_versie3_QE.pdf" target="_blank" rel="noopener">Week3 Lecture1 In depth versie3</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/In-Depth-Notes/20262027_Week3_Lecture2_In%20Depth_QE.pdf" target="_blank" rel="noopener">Week3 Lecture2 In Depth</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/In-Depth-Notes/20262027_Week6_Lecture1_In%20depth_versie3_QE.pdf" target="_blank" rel="noopener">Week6 Lecture1 In depth versie3</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/In-Depth-Notes/20262027_Week6_Lecture2_In%20depth_QE.pdf" target="_blank" rel="noopener">Week6 Lecture2 In depth</a>
-      </div>
-      <div class="matcol"><h4>Multiple-Choice</h4>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Multiple-Choice/20262027_Week3a_MC_QE.pdf" target="_blank" rel="noopener">Week3a MC</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Multiple-Choice/20262027_Week3b_MC_QE.pdf" target="_blank" rel="noopener">Week3b MC</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Multiple-Choice/20262027_Week4a_MC_QE.pdf" target="_blank" rel="noopener">Week4a MC</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Multiple-Choice/20262027_Week6a_MC_QE.pdf" target="_blank" rel="noopener">Week6a MC</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Multiple-Choice/20262027_Week6b_MC_QE.pdf" target="_blank" rel="noopener">Week6b MC</a>
-      </div>
-      <div class="matcol"><h4>Homework</h4>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/2022_Verdieping_Week6_Solutions-7.pdf" target="_blank" rel="noopener">Verdieping Week6 Solutions 7</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/2022_Week3_Verdieping_Solutions-d0f5e7f0-6420-4bd1-b288-8642ce99d7e9.pdf" target="_blank" rel="noopener">Week3 Verdieping Solutions d0f5e7f0 6420 4bd1 b288 8642ce99d7e9</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/20252026_Week1_Homework1_QE.pdf" target="_blank" rel="noopener">Week1 Homework1</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/20252026_Week2_Homework2a_QE-1.pdf" target="_blank" rel="noopener">Week2 Homework2a 1</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/20252026_Week2_Homework2b_QE-1.pdf" target="_blank" rel="noopener">Week2 Homework2b 1</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/20252026_Week5_Homework4_QE.pdf" target="_blank" rel="noopener">Week5 Homework4</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/20252026_Week6_Homework5a_QE.pdf" target="_blank" rel="noopener">Week6 Homework5a</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/20252026_Week6_Homework5b_QE.pdf" target="_blank" rel="noopener">Week6 Homework5b</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/2025_Computing%20GDP.pdf" target="_blank" rel="noopener">Computing GDP</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Homework/20262027_Week3_Homework3_QE.pdf" target="_blank" rel="noopener">Week3 Homework3</a>
-      </div>
-      <div class="matcol"><h4>Past-Papers</h4>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/20252026_6011P0506Y_Tentamen1.pdf" target="_blank" rel="noopener">Tentamen1</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/20252026_6011P0506Y_Tentamen2.pdf" target="_blank" rel="noopener">Tentamen2</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-exam-2018-incl-solutions.pdf" target="_blank" rel="noopener">Exam 2018 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-exam-2019-incl-solutions.pdf" target="_blank" rel="noopener">Exam 2019 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-exam-2020-incl-solutions.pdf" target="_blank" rel="noopener">Exam 2020 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-exam-2021-incl-solutions.pdf" target="_blank" rel="noopener">Exam 2021 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-exam-2022-incl-solutions.pdf" target="_blank" rel="noopener">Exam 2022 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-exam-2023-incl-solutions.pdf" target="_blank" rel="noopener">Exam 2023 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2017-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2017 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2018-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2018 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2019-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2019 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2020-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2020 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2021-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2021 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2022-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2022 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2023-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2023 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2024-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2024 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-midterm-2025-incl-solutions.pdf" target="_blank" rel="noopener">Midterm 2025 (with solutions)</a>
-        <a href="https://github.com/dolfoo444/macro-course-materials/blob/main/Past-Papers/macro-resit-2021-incl-solutions.pdf" target="_blank" rel="noopener">Resit 2021 (with solutions)</a>
-      </div>
-    </div>
-  </section>
-  <style>
-    #materials .matwrap{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
-    #materials .matcol{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 15px;box-shadow:var(--shadow)}
-    #materials .matcol h4{margin:0 0 8px;font-size:.95rem;color:var(--brand-ink)}
-    #materials .matcol a{display:block;padding:6px 0;border-bottom:1px solid var(--line);font-size:.85rem;text-decoration:none;color:var(--ink-soft)}
-    #materials .matcol a:last-child{border-bottom:0}
-    #materials .matcol a:hover{color:var(--brand-ink)}
-  </style>
 
 </main>
 
