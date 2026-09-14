@@ -464,6 +464,19 @@
         <p>Extreme inflation, usually from a government financing deficits by <b>printing money</b>. Real balances $M/P$ collapse and velocity $V$ soars as everyone spends cash instantly. It ends only when money-financing of the deficit stops.</p>
         <div class="eg"><b>Example:</b> interwar Germany (1922–23): reparations → deficits → money printing → hyperinflation, stopped when the central bank stopped financing the government.</div></div>
     </div>
+
+    <div class="gloss-group">The labour market model (go deeper)</div>
+    <div class="gloss">
+      <div class="gterm"><h4>Natural-rate model <span class="sym">$u^n=\dfrac{s}{s+f}$</span></h4>
+        <p>Think of workers flowing between "employed" and "unemployed." Each period a fraction $s$ (the <b>job-separation rate</b>) lose their job and a fraction $f$ (the <b>job-finding rate</b>) find one. In the long run the flows balance, and the unemployment rate settles at $u^n=\dfrac{s}{s+f}$.</p>
+        <div class="eg"><b>Example:</b> $s=4\%$, $f=46\%$ → $u^n=\dfrac{0.04}{0.50}=8\%$. If today's $u$ is above $8\%$, it falls next period; below $8\%$, it rises — $u$ always gravitates to $u^n$.</div></div>
+      <div class="gterm"><h4>Frictional unemployment <span class="sym"></span></h4>
+        <p>Unemployment from the <b>time it takes to match</b> workers and jobs — people have different skills and preferences, and searching takes time. It exists even in a healthy economy.</p>
+        <div class="eg"><b>Example:</b> employment agencies and retraining programs <em>reduce</em> it; generous unemployment benefits <em>raise</em> it (people can search longer).</div></div>
+      <div class="gterm"><h4>Structural unemployment &amp; real-wage rigidity <span class="sym">$W/P$</span></h4>
+        <p>When the <b>real wage $W/P$</b> is stuck <em>above</em> the market-clearing level, labour demand falls short of supply and the gap can't be competed away — that gap is structural unemployment. Three causes: <b>minimum wages</b>, <b>collective bargaining</b> (insiders vs outsiders), and <b>efficiency wages</b> (paying more to lift productivity).</p>
+        <div class="eg"><b>Example:</b> a union negotiates a wage above equilibrium to protect employed "insiders" → some "outsiders" stay unemployed.</div></div>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -770,6 +783,15 @@
         <p class="step">$M=mB=2.25\times450=1012.5$. Solve $C+D=1012.5$ and $C=cr\,D=0.5D$: $1.5D=1012.5\Rightarrow D=675$, $C=337.5$, $R=rr\,D=\tfrac16(675)=112.5$. (Check $B=C+R=337.5+112.5=450$ ✓)</p>
         <p><span class="ans">Answers:</span> $B_t=450,\ M_t=900,\ cr=1/2,\ rr=1/4,\ m_t=2$; new $m=2.25,\ C=337.5,\ R=112.5,\ D=675,\ M=1012.5$. Lower reserves ⇒ bigger multiplier ⇒ more money.</p></div></details>
     </div>
+
+    <div class="prob"><div class="q"><div class="meta">Problem N4 · Natural unemployment rate &amp; convergence</div>
+      <p>In period 0: employed $E=9000$, unemployed $U=1000$. Each period the job-separation rate is $s=2\%$ and the job-finding rate is $f=38\%$. &nbsp;(a) Find the natural unemployment rate $u^n$. &nbsp;(b) Is the period-0 unemployment rate above or below $u^n$, and will unemployment rise or fall next period?</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>(a)</b> $u^n=\dfrac{s}{s+f}=\dfrac{0.02}{0.02+0.38}=\dfrac{0.02}{0.40}=0.05=5\%$.</p>
+        <p class="step"><b>(b)</b> Period-0 rate $u_0=\dfrac{U}{E+U}=\dfrac{1000}{10000}=10\%$, which is <em>above</em> $u^n=5\%$. Since $u$ always gravitates to $u^n$, unemployment will <b>fall</b> next period.</p>
+        <p class="step">(Check with the flow equation $\Delta u_{t+1}=(s+f)\big[\tfrac{s}{s+f}-u_t\big]=0.40(0.05-0.10)=-0.02$ → $u$ drops ~2 points toward 5%.)</p>
+        <p><span class="ans">Answers:</span> $u^n=5\%$; period-0 rate is above it, so unemployment falls.</p></div></details>
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -872,6 +894,7 @@
         <li>Real GDP $=\sum p^{\text{base}}_i q^t_i$; growth $=\dfrac{x_{t+1}-x_t}{x_t}$</li>
         <li>Chain growth $\approx\tfrac12(g^1+g^2)$</li>
         <li>$e=p(1-u)$</li>
+        <li>$u^n=\dfrac{s}{s+f}$ (separation ÷ [separation + finding])</li>
         <li>$B=C+R$; $M=C+D$; $m=\dfrac{cr+1}{cr+rr}$; $M=mB$</li>
         <li>$MV=PY$; $\dfrac{\Delta M}{M}=\dfrac{\Delta P}{P}+\dfrac{\Delta Y}{Y}$</li>
         <li>Fisher: $i=r+\pi$ (and $i=r^e+\pi^e$)</li>
@@ -897,7 +920,9 @@
       <div class="card"><h4><span class="d"></span>Lists to memorize</h4><ul>
         <li><b>3 functions of money:</b> medium of exchange · unit of account · store of value.</li>
         <li><b>3 ways to finance government:</b> taxes · borrowing (bonds) · printing money (seigniorage).</li>
-        <li><b>Natural rate =</b> frictional + structural.</li>
+        <li><b>Natural rate =</b> frictional + structural ($u^n=\tfrac{s}{s+f}$).</li>
+        <li><b>Frictional</b> ↓ by agencies/retraining, ↑ by benefits.</li>
+        <li><b>Structural</b> from real-wage rigidity: minimum wage · collective bargaining (insiders/outsiders) · efficiency wages.</li>
         <li><b>Monetary base =</b> currency + reserves.</li>
         <li><b>M1 =</b> currency + demand deposits.</li>
         <li><b>Hyperinflation:</b> $>50\%$/month; $M/P$↓, $V$↑; money loses all 3 functions.</li>
@@ -1095,6 +1120,19 @@
       <div class="gterm"><h4>Phillips curve (course form) <span class="sym">$\pi_t=\pi^e_t-\beta(u_t-u^n)$</span></h4>
         <p>Inflation exceeds expected inflation when unemployment is below its natural rate $u^n$. Under <b>adaptive</b> expectations $\pi^e_t=\pi_{t-1}$, giving $\Delta\pi_t=-\beta(u_t-u^n)$: the <em>change</em> in inflation tracks the unemployment gap.</p>
         <div class="eg"><b>Example:</b> if $u^n=5\%$, $\beta=2$: at $u=4\%$ inflation rises 2 points; at $u=6\%$ it falls 2 points; at $u=5\%$ it's steady.</div></div>
+    </div>
+
+    <div class="gloss-group">Bonds &amp; the money market (liquidity preference)</div>
+    <div class="gloss">
+      <div class="gterm"><h4>Bond prices &amp; the interest rate <span class="sym">$P_B=\dfrac{F}{1+YTM}$</span></h4>
+        <p>A bond pays a fixed amount $F$ later; its price today $P_B$ is lower, and the gap is the yield ($YTM\approx$ the interest rate $i$). Key inverse: when bond prices <b>rise</b>, the interest rate <b>falls</b>, and vice versa. This is how the money market sets $i$ — people buy/sell bonds until they're happy holding the available money.</p>
+        <div class="eg"><b>Example:</b> too little money around → people <b>sell</b> bonds → bond prices fall → $i$ rises, until money demand equals supply.</div></div>
+      <div class="gterm"><h4>The liquidity-preference money market <span class="sym">$(M/P)^d=\bar L+kY-mi$</span></h4>
+        <p>Money (M1) pays no interest; bonds pay $i$. Real money demand rises with income $Y$ and falls with $i$. In the short run $P$ and $Y$ are fixed, so the interest rate $i$ is the only thing that moves to clear the market $(M/P)^s=(M/P)^d$. Shock directions: ↑$M$→$i$↓; ↑$P$→$i$↑; ↑$Y$→$i$↑; ↑$\bar L$ (a bond-market panic) →$i$↑.</p>
+        <div class="eg"><b>Example:</b> ↑$Y$ raises money demand → excess demand for money → people sell bonds → $i$ rises. Tracing $Y\uparrow\Rightarrow i\uparrow$ gives the upward-sloping <b>LM curve</b>.</div></div>
+      <div class="gterm"><h4>Monetary tightening: short vs long run <span class="sym"></span></h4>
+        <p>Does tighter money raise or lower interest rates? It depends on the horizon. <b>Short run</b> (liquidity preference): a lower <em>level</em> of $M$ → $i$ <b>rises</b>. <b>Long run</b> (quantity theory + Fisher): a lower <em>growth rate</em> of $M$ → less inflation → $i$ <b>falls</b>.</p>
+        <div class="eg"><b>Example:</b> US/UK early 1980s — tightening first pushed rates up, then rates settled <em>lower</em> as inflation came down.</div></div>
     </div>
   </section>
 
@@ -1398,6 +1436,18 @@
         <p><span class="ans">Answer: b.</span> Monetary neutrality: in the long run, nominal variables ($P,\pi,i,e,M$) adjust but real variables ($Y,r,\varepsilon,M/P$) don't. Money is neutral — it moves the price level, not real output.</p></div></details>
     </div>
 
+    <div class="mcq"><div class="q"><div class="meta">MCQ 13 · Monetary tightening — horizon matters</div>
+      <p>A central bank tightens monetary policy. What happens to the nominal interest rate?</p>
+      <ol class="opts">
+        <li><span class="k">a.</span> It rises in both the short and the long run.</li>
+        <li><span class="k">b.</span> It falls in both the short and the long run.</li>
+        <li><span class="k">c.</span> It rises in the short run (liquidity preference) but falls in the long run (lower inflation, Fisher effect).</li>
+        <li><span class="k">d.</span> It falls in the short run but rises in the long run.</li>
+      </ol></div>
+      <details class="sol"><summary>Reveal answer &amp; reasoning</summary><div class="sbody">
+        <p><span class="ans">Answer: c.</span> <b>Short run</b> (liquidity preference): a lower <em>level</em> of $M$ shrinks real money supply → $i$ rises. <b>Long run</b> (quantity theory + Fisher): a lower <em>growth rate</em> of $M$ means lower inflation → lower nominal rate. The US/UK early 1980s show exactly this: rates spiked, then settled lower with inflation.</p></div></details>
+    </div>
+
   </section>
 
   <div class="divider"></div>
@@ -1426,6 +1476,15 @@
         <p class="step"><b>(c)</b> $\Delta Y=\mu\,\Delta G \Rightarrow 50=2\,\Delta G \Rightarrow \Delta G=25.$</p>
         <p><span class="ans">Answers:</span> $\mu=\dfrac{1}{1-c(1-t)+z}=2$, $Y=1280$, $\Delta G=25$.</p>
         <p class="step"><b>Note:</b> proportional taxes ($t$) and income-sensitive imports ($z$) both <em>shrink</em> the multiplier — extra income leaks to the tax office and to foreign producers.</p></div></details>
+    </div>
+
+    <div class="prob"><div class="q"><div class="meta">Problem F3 · Liquidity-preference money market</div>
+      <p>Money market: $(M/P)^d=\bar L+kY-mi$ and $(M/P)^s=\bar M/P$, with $\bar M=200,\ P=2,\ \bar L=20,\ k=0.5,\ Y=200,\ m=10$. &nbsp;(a) Find the equilibrium interest rate $i$. &nbsp;(b) Income rises to $Y=240$ — find the new $i$. &nbsp;(c) From the original, the central bank raises $\bar M$ to $220$ — find the new $i$.</p></div>
+      <details class="sol"><summary>Show full solution</summary><div class="sbody">
+        <p class="step"><b>(a)</b> Real money supply $=\bar M/P=200/2=100$. Demand $=20+0.5(200)-10i=120-10i$. Set equal: $100=120-10i\Rightarrow 10i=20\Rightarrow i=2$.</p>
+        <p class="step"><b>(b)</b> Demand $=20+0.5(240)-10i=140-10i$. Set $=100$: $100=140-10i\Rightarrow i=4$. Higher income raises money demand, so $i$ rises — this is a movement <em>along</em> the LM curve ($Y\uparrow\Rightarrow i\uparrow$).</p>
+        <p class="step"><b>(c)</b> New supply $=220/2=110$. Demand $=120-10i$. $110=120-10i\Rightarrow i=1$. A monetary expansion lowers $i$ (LM shifts right).</p>
+        <p><span class="ans">Answers:</span> (a) $i=2$; (b) $i=4$; (c) $i=1$.</p></div></details>
     </div>
   </section>
 
@@ -1532,6 +1591,9 @@
       <div class="card"><h4><span class="d"></span>Curve-shift rules</h4><ul>
         <li><b>IS right:</b> ↑$G$, tax cut, ↑ autonomous $C$/$I$, ↑ optimism.</li>
         <li><b>LM right:</b> ↑$M$ or ↓$P$ (real money supply ↑).</li>
+        <li>Bonds: $P_B=\dfrac{F}{1+YTM}$; $P_B\uparrow\iff i\downarrow$.</li>
+        <li>Money mkt (short run): ↑$M$→$i$↓ · ↑$P$→$i$↑ · ↑$Y$→$i$↑ · ↑$\bar L$ (panic)→$i$↑.</li>
+        <li>Tightening: $i$↑ short run, $i$↓ long run.</li>
         <li><b>AD right:</b> anything shifting IS right or LM right.</li>
         <li><b>SRAS shifts</b> up/left when $Y>\bar Y$ (until output returns to potential).</li>
         <li><b>LRAS</b> vertical at potential $\bar Y$.</li>
