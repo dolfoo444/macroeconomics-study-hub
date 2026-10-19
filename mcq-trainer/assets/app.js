@@ -182,7 +182,15 @@
     card.appendChild(tags);
     card.appendChild(el("div", "qtext", q.text));
     if (q.table) card.appendChild(el("div", "qtable", q.table));
-    if (q.figure) card.appendChild(el("div", "figure", "📈 " + q.figure));
+    if (q.img) {
+      const fig = el("figure", "figwrap");
+      const im = el("img", "figimg"); im.src = q.img; im.alt = "Exam figure for this question"; im.loading = "lazy";
+      fig.appendChild(im);
+      if (q.figure) fig.appendChild(el("figcaption", "figcap", q.figure));
+      card.appendChild(fig);
+    } else if (q.figure) {
+      card.appendChild(el("div", "figure", "📈 " + q.figure));
+    }
 
     const opts = el("div", "opts");
     q.options.forEach((o, i) => {
