@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Macro MCQ Trainer · UvA</title>
+<meta name="description" content="Interactive multiple-choice trainer for UvA Macroeconomics for Quantitative Economics — all past-exam MCQs by topic and year, plus predicted questions for the final, each with a step-by-step solution.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c8102e'/><text x='50' y='70' font-size='60' text-anchor='middle' fill='white' font-family='Georgia'>M</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="hbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>Macro MCQ Trainer<small>Macroeconomics for Quantitative Economics · UvA</small></span>
+    </div>
+    <div class="spacer"></div>
+    <button class="iconbtn" id="themeBtn" title="Toggle light / dark">☀️</button>
+    <button class="iconbtn" id="resetBtn" title="Reset progress">⟳ Reset</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Drill every macro MCQ — then predict the final.</h1>
+    <p>Every multiple-choice question from the 2019–2026 exams and resits, sorted by topic and by sitting, each with a step-by-step worked solution. Click an answer to see instantly whether you're right and <em>why</em>. Then test yourself on a set of original, exam-style questions predicted for the upcoming final.</p>
+    <div class="stats">
+      <div class="stat"><b id="statTotal">–</b><span>past-exam MCQs</span></div>
+      <div class="stat"><b id="statDone">–</b><span>answered by you</span></div>
+      <div class="stat"><b id="statAcc">–</b><span>your accuracy</span></div>
+    </div>
+  </section>
+
+  <div class="tabs">
+    <button class="tab active" data-mode="topic">By topic / week</button>
+    <button class="tab" data-mode="year">By exam year</button>
+    <button class="tab" data-mode="pred">★ Predicted final</button>
+    <button class="tab" data-mode="all">Mixed &amp; weak spots</button>
+  </div>
+
+  <div id="app"><!-- rendered by app.js --></div>
+</main>
+
+<footer class="wrap">
+  <p>Tip: press <span class="kbd">1</span>–<span class="kbd">4</span> or <span class="kbd">a</span>–<span class="kbd">d</span> to answer, <span class="kbd">Enter</span> for next. Progress is saved in your browser only.</p>
+  <p>Built for study use from past papers of <b>Macroeconomics for Quantitative Economics (6011P0506Y)</b>. Questions © their original authors; solutions &amp; interface are a study aid, not official material.</p>
+</footer>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
